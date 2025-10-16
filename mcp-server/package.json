@@ -1,0 +1,20 @@
+{
+  "name": "a11y-mcp-server",
+  "description": "An MCP server for accessibility testing using Axe-core",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsc && chmod +x dist/*.js",
+    "prepare": "npx playwright install && npm run build",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@axe-core/playwright": "^4.10.2",
+    "@modelcontextprotocol/sdk": "^1.19.1",
+    "axe-core": "^4.10.2",
+    "playwright": "^1.55.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.7.0"
+  }
+}

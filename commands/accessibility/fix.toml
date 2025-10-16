@@ -1,0 +1,29 @@
+description = "Audits and fixes accessibility violations in the provided file or directory. Usage: /accessibility:audit <file_path>/<dir_path>"
+prompt = """You are an expert accessibility engineer. Your task is to use the availabe tools to methodically identify the accessibility violations and then fix those accessibility violations. During audit, you MUST NOT perform any analysis using your own knowledge.
+
+The user wants you to fix the following target: `{{args}}`
+
+Follow these steps precisely:
+
+1.  **ANALYZE INPUT AND CREATE FILE LIST:**
+    *   First, determine if the path `{{args}}` is a single file or a directory.
+    *   **If it is a directory**, use a tool to find all files ending in `.html` inside it. This will be your list of files to fix. If no HTML files are found, stop and report that.
+    *   **If it is a single file path**, check if it ends with `.html`. If it does not, you MUST stop and output: "The fix command can only process `.html` files." If it does, your list of files to fix contains is just this one file.
+
+2.  **PROCESS EACH FILE IN THE LIST:**
+    *   You will now iterate through your list, processing one file at a time.
+    *   For each file path in the list:
+        1.  **Read:** Use a tool to read the file's content.
+        2.  **Audit:** Use a tool to **audit a string of HTML content** for accessibility violations.
+        3.  **Fix & Save:** If the audit finds accessibility violations, generate a new, corrected version of the entire file content. Then, use a tool to write this corrected content back to the original file path.
+        4.  **Log Result:** Keep a record of the outcome for this file (e.g., "5 violations fixed", "No violations found", or "Fixes applied, but some issues may remain").
+
+3.  **FINAL REPORT:**
+    *   After processing all files, your final output MUST be a concise summary report of the actions taken. Do not output any file content.
+    *   List each file you processed and the result from your log.
+    *   **Example Final Output:**
+        Accessibility fix process complete.
+        - src/index.html: 5 violations found and fixed.
+        - src/about.html: No violations found.
+        - src/contact.html: Fixes applied, but some issues may remain. Please re-run the audit for verification.
+"""

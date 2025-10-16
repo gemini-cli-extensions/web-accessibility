@@ -1,0 +1,11 @@
+{
+  "name": "accessibility",
+  "version": "1.0.0",
+  "contextFileName": "ACCESSIBILITY.md",
+  "mcpServers": {
+    "a11y-server": {
+      "command": "node",
+      "args": ["${extensionPath}/mcp-server/dist/index.js"]
+    }
+  }
+}
