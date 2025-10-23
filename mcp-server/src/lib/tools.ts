@@ -44,6 +44,58 @@ function formatAxeResults(result: AxeResults) {
  * @param analyzer The AxeAnalyzer instance to use for analysis.
  */
 export function registerA11yTools(server: McpServer, analyzer: AxeAnalyzer) {
+  // Tool for analyzing a web URL.
+  server.registerTool(
+    'a11y_audit_web_url',
+    {
+      description: 'Audits a live URL for accessibility violations.',
+      inputSchema: z.object({
+        url: z
+          .string()
+          .url()
+          .describe('The localhost:port or public URL to analyze.'),
+        tags: z
+          .array(z.string())
+          .optional()
+          .describe('Optional list of axe-core tags to filter the rules.'),
+        rules: z
+          .array(z.string())
+          .optional()
+          .describe('Optional list of axe-core rules to run.'),
+      }).shape,
+    },
+    async ({ url, tags, rules }: { url: string; tags?: string[], rules?: string[] }) => {
+      try {
+        const result = await analyzer.analyze(
+          async (page) => {
+            await page.goto(url);
+          },
+          { tags, rules }
+        );
+        return formatAxeResults(result);
+      } catch (error) {
+        console.error('Error analyzing URL:', error);
+        return {
+          content: [
+            {
+              type: 'text' as const,
+              text: `An error occurred while analyzing the URL: ${(error as Error).message
+                }`,
+            },
+          ],
+        };
+      }
+    }
+  );
+
+  // TODO(mayurvaid): Enable when ready.
+  // registerUpcomingA11yTools(server, analyzer);
+}
+
+
+function registerUpcomingA11yTools(server: McpServer, analyzer: AxeAnalyzer) {
+  // Placeholder for future accessibility tools.
+
   // Tool for analyzing an HTML string.
   server.registerTool(
     'a11y_audit_html_string',
@@ -61,31 +113,6 @@ export function registerA11yTools(server: McpServer, analyzer: AxeAnalyzer) {
       const result = await analyzer.analyze((page) => page.setContent(html), {
         tags,
       });
-      return formatAxeResults(result);
-    }
-  );
-
-  // Tool for analyzing a web URL.
-  server.registerTool(
-    'a11y_audit_web_url',
-    {
-      description: 'Audits a live URL for accessibility violations.',
-      inputSchema: z.object({
-        url: z.string().url().describe('The localhost:port or public URL to analyze.'),
-        tags: z
-          .array(z.string())
-          .optional()
-          .describe('Optional list of axe-core tags to filter the rules.'),
-      }).shape,
-    },
-    async ({ url, tags }: { url: string; tags?: string[] }) => {
-      const result = await analyzer.analyze(
-        (page) => {
-          page.goto(url);
-          return Promise.resolve();
-        },
-        { tags }
-      );
       return formatAxeResults(result);
     }
   );

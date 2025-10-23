@@ -1,6 +1,6 @@
 {
-  "name": "a11y-mcp-server",
-  "description": "An MCP server for accessibility testing using Axe-core",
+  "name": "web-accessibility-mcp-server",
+  "description": "An MCP server for web accessibility testing using Axe-core",
   "version": "0.1.0",
   "type": "module",
   "scripts": {
