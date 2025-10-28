@@ -17,10 +17,7 @@ Follow all of these steps precisely:
 2.  **PERFORM AUDIT:**
     *   Use the `a11y_audit_web_url` tool with the provided or discovered URL to check for accessibility violations.
 
-3.  **SHUT DOWN SERVER (if started):**
-    *   If you started a local server in step 1, you MUST terminate the background process now that the audit is complete.
-
-4.  **CREATE TODO FILE AND PREPARE SUMMARY:**
+3.  **CREATE TODO FILE AND PREPARE SUMMARY:**
     *   The `a11y_audit_web_url` tool will return a structured response containing a list of violations.
     *   If the result is empty (no violations found), do nothing and output: "No accessibility violations were found."
     *   Otherwise:
@@ -28,7 +25,7 @@ Follow all of these steps precisely:
         2.  Use the tools available to write this checklist to a new file named `ACCESSIBILTY_REVIEW_TODO.md` in the current directory. Remember to give the absolute path of the file `ACCESSIBILTY_REVIEW_TODO.md` while asking to write it.
         3.  Prepare a high-level summary of the findings (e.g., "Found 12 violations: 3 critical, 5 serious, 4 moderate").
 
-5.  **FINAL REPORT:**
+4.  **FINAL REPORT:**
     *   Your final output must be a helpful and clear report that includes:
         1.  The summary of violations you prepared.
         2.  A notification that the `ACCESSIBILTY_REVIEW_TODO.md` file has been created with more details.
