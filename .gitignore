@@ -1,3 +1,5 @@
-mcp-server/dist/**
-mcp-server/node_modules/**
+**/dist/**
+**/lib/**
+**/node_modules/**
 .prettierignore
+agent-evals/output/**
