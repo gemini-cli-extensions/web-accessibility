@@ -1,0 +1,63 @@
+/*
+ * CSS for Accessible University Demo Site
+ * http://uw.edu/accesscomputing/AU
+ *
+ * after-menu.css = Styles for accessible dropdown menu
+ *
+ * Uses Bootstraps default dropdown menu
+ * https://getbootstrap.com/docs/4.0/components/dropdowns/
+ *
+ */
+
+
+/*
+ * Utility menu
+ */
+
+.utility-menu li {
+	float:left;
+	margin-left: 5px;
+}
+.utility-menu li:last-child:before {
+	content: " | "
+}
+
+
+/*
+ * Main menu
+ */
+
+ /* overwrite some bootstrap menu colors */
+
+.navbar-toggler {
+	background-color: #28a745;
+}
+.navbar-dark {
+	color: #fff;
+}
+.navbar-dark .navbar-nav button {
+	background: transparent;
+	border: none;
+}
+.navbar-dark .navbar-nav .nav-link {
+	color: lightgreen;
+	text-decoration: none;
+}
+.navbar-dark .navbar-nav .nav-item:hover {
+	color: lightgreen;
+	color: #000;
+}
+.navbar-dark .navbar-nav .nav-link:hover {
+	background-color: lightgreen;
+	color: #000;
+}
+.dropdown-menu {
+	margin-top:-1px;
+}
+.dropdown-item {
+	text-decoration: none;
+}
+.dropdown-item:hover {
+	background-color: lightgreen;
+	color: #000;
+}

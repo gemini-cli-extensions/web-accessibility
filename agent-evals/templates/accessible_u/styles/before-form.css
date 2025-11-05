@@ -1,0 +1,64 @@
+/*
+ * CSS for Accessible University Demo Site
+ * http://uw.edu/accesscomputing/AU
+ *
+ * before-form.css = Styles unique to inaccessible form
+ *    (shared form styles are in main.css)
+ */
+
+#appForm div.heading {
+  font-size: 1.6em;
+  font-weight: normal;
+}
+#appForm p.reqExample {
+  margin-top: 0.15em;
+}
+div#majors {
+  width: 10em;
+}
+
+/*
+ *
+ * Uses color alone to indicate which fields are required
+ *
+ */
+.required {
+  color: blue;
+}
+
+/*
+ *
+ * CAPTCHA
+ *
+ */
+
+#captcha h2 {
+  font-size: 1.1em;
+	margin-bottom: 0.25em;
+}
+#captcha p {
+  margin-top: 0.25em;
+}
+#captcha img {
+  display: block;
+	margin-top: 0.5em;
+	border: 1px solid black;
+	max-width: 100%;
+}
+
+/*
+ *
+ * Error Message in Form
+ *
+ */
+#error {
+  background-color: #FFC;
+  font-weight: bold;
+  padding: 0.75em;
+  border: 1px solid #2A194C;
+  display: none;
+}
+#errorHeading {
+  font-size: 1.1em;
+  font-weight: bold;
+}

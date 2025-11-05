@@ -1,0 +1,110 @@
+/*
+ * CSS for Accessible University Demo Site
+ * http://uw.edu/accesscomputing/AU
+ *
+ * before-carousel.css = Styles for inaccessible carousel
+ */
+
+#carousel {
+  position: relative;
+  background-color: #000;
+  text-align: center;
+  margin: 0 0 10px;
+  width: 100%;
+  /* min-width: 720px; */
+}
+#carousel .slide {
+  display: none;
+  text-align: center;
+}
+#carousel .slide a {
+  color: #CCC;
+  width: 100%
+}
+#carousel .slide img {
+  width:100%;
+}
+#carousel .slide.current {
+  display: block;
+  z-index: 10;
+}
+/*
+ *
+ * Prev/Next buttons
+ *
+ *
+ */
+
+#carousel:hover .btn-prev,
+#carousel:hover .btn-next {
+  opacity: 1
+}
+
+
+.btn-prev,
+.btn-next {
+  position: absolute;
+  z-index: 20;
+  top: 147px;
+  border: 0;
+  padding: 0;
+  transition: padding .4s ease-out;
+}
+.btn-prev,
+.btn-next {
+  opacity: .4;
+}
+.btn-prev {
+  left:0;
+  border-radius: 0 .25em .25em 0;
+}
+.btn-next {
+  right:0;
+  border-radius: .25em 0 0 .25em;
+}
+.btn-next:hover, .btn-next:focus,
+.btn-prev:hover, .btn-prev:focus {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/*
+ *
+ * Slide Indicators (Lentils)
+ *
+ *
+ */
+ul.lentils {
+  list-style-type: circle;
+}
+.lentils li {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: 10px;
+  text-indent: 0;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  background-color: #FFF;
+  box-shadow: inset 1px 1px 1px 1px rgba(0,0,0,0.5);
+}
+.lentils li.active {
+  width: 20px;
+  height: 20px;
+  margin: 10px;
+  background-color: #FF9; /* yellow */
+}
+
+/*
+ *
+ * Somewhat Responsive
+ *
+ */
+
+@media (max-width: 1050px) {
+  /* point at which Application form  drops below content */
+  #main {
+    width: 720px;
+  }
+}

@@ -1,0 +1,36 @@
+/*
+ * CSS for Accessible University Demo Site
+ * http://uw.edu/accesscomputing/AU
+ *
+ * before-menu.css = Styles for inaccessible dropdown menu
+ */
+
+
+/*
+ * Utility menu
+ */
+
+.utility-menu li {
+	float:left;
+	margin-left: 5px;
+}
+.utility-menu li:last-child:before {
+	content: " | "
+}
+
+ /*
+  * Main menu
+  */
+
+.navbar-nav a:focus {
+	outline: 1px dotted white;
+}
+.dropdown-menu {
+	margin-top:-1px;
+}
+.nav-item.dropdown:hover ul {
+	display:block;
+}
+.navbar-toggler:hover + .navbar-collapse {
+	display:block;
+}

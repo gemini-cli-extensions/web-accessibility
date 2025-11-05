@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<title>Before - Accessible University Demo Site - Inaccessible Version</title>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link href="styles/bootstrap.min.css" rel="stylesheet">
+	<link href="styles/before-main.css" rel="stylesheet">
+	<link href="styles/before-menu.css" rel="stylesheet">
+  <link href="styles/before-events.css" rel="stylesheet">
+	<link href="styles/before-form.css" rel="stylesheet">
+	<link href="styles/before-modal.css" rel="stylesheet">
+	<link href="styles/before-hero.css" rel="stylesheet">
+  <!-- <script src="scripts/bootstrap.bundle.min.js"></script> -->
+	<script src="scripts/before-menu.js"></script>
+	<script src="scripts/before-form.js"></script>
+	<script src="scripts/before-modal.js"></script>
+	<script src="scripts/before-hero.js"></script>
+</head>
+<body>
+  <div id="content">
+    <div id="banner" class="container clearfix">
+      <nav aria-label="version" class="float-right">
+        <span class="float-left">Examples:</span>
+        <ul class="utility-menu float-left list-unstyled">
+          <li><a href="before_u.html" aria-current="page" aria-label="before version with problems">Before</a></li>
+          <li><a href="after_u.html" aria-label="after version with fixes">After</a></li>
+        </ul>
+      </nav>
+      <a class="logo-link" href="/">
+        <img id="logo" src="images/8675309-l-o-g-o-before.png"/>
+      </a>
+    </div>
+
+    <div class="navbar navbar-expand-lg navbar-dark bg-dark bg-primary md-3">
+      <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#"
+                  data-toggle="dropdown">
+                  About
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">News</a></li>
+                <li><a class="dropdown-item" href="#">Governance</a></li>
+                <li><a class="dropdown-item" href="#">Diversity</a></li>
+                <li><a class="dropdown-item" href="#">Contact Us</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#"
+                  data-toggle="dropdown">
+                  Academics
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Degree Programs</a></li>
+                <li><a class="dropdown-item" href="#">AU Faculty</a></li>
+                <li><a class="dropdown-item" href="#">Distance Learning</a></li>
+                <li><a class="dropdown-item" href="#">Libraries</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#"
+                  data-toggle="dropdown">
+                  Admissions
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Undergraduate</a></li>
+                <li><a class="dropdown-item" href="#">Graduate</a></li>
+                <li><a class="dropdown-item" href="#">Tuition</a></li>
+                <li><a class="dropdown-item" href="#">Financial Aid</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="#">
+                  Visitors
+              </a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input id="search-input" class="form-control mr-sm-2" type="search" placeholder="Search">
+            <button class="btn btn-success my-2 my-sm-0" type="submit">Go</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <br/>
+    <div class="container">
+      <div class="row">
+          <div class="col-md-8" id="main">
+            <section class="mb-3">
+
+              <div id="carousel">
+                <div>
+                  <div class="slide">
+                    <a href="somepage.html?ref=Slide%201">
+                      <img src="images/8675309-before_brass_band.jpg" />
+                    </a>
+                  </div>
+                  <div class="slide">
+                    <a href="somepage.html?ref=Slide%202">
+                      <img src="images/8675309-before_articulated_bus.jpg" />
+                    </a>
+                  </div>
+                  <div class="slide">
+                    <a href="somepage.html?ref=Slide%203">
+                      <img src="images/8675309-before_construction.jpg" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="section">
+                <div class="heading">Welcome!</div>
+                <p>Accessible University (AU) is a <a href="https://www.merriam-webster.com/dictionary/fictional">fictional</a> <a href="https://en.wikipedia.org/wiki/University">university</a>, and this is its
+                  fictional home page. This page is designed to demonstrate a variety of
+                  common web design <a href="https://www.merriam-webster.com/dictionary/problems">problems</a> that result in visitors with disabilities
+                  being unable to access the content or features of a web page.
+                  Although the heading at the top of this section of the page
+                  suggests that AU may be a welcoming institution,
+                  the inaccessible design of this page sends the opposite message.
+                </p>
+              </div>
+
+              <div class="heading">Bienvenido!</div>
+              <p>Accesible Universidad (UA) es una universidad ficticia, y esta es su
+                página de ficción. Esta página está diseñada para demostrar una variedad de
+                común de diseño web que se traducen en problemas de los visitantes con discapacidad
+                no poder acceder al contenido o las características de una página web.
+                Aunque el título en la parte superior de esta sección de la página
+                sugiere que AU puede ser una institución de bienvenida,
+                el diseño inaccesible de esta página envía el mensaje opuesto.
+              </p>
+
+              <div class="heading">Can you spot the barriers?</div>
+              <p><img style="float:left;max-width:200px;margin-right:10px" src="images/8675309-block.jpg"/> There are at least 18 accessibility issues on this page.
+                To see a list of all known issues, <a href="issues.html">click here</a>.
+                To see a more accessible version of this same page, <a href="after_u.html">click here</a>.
+                To view a popup list of accessibility issues:</p>
+                <a class="btn btn-primary" href="cheatsheet.html">click here</a>
+
+              <div class="heading">AU Enrollment Trends</div>
+              <table id="enrollment" class="table">
+                <tr>
+                  <td style="width:6em">&nbsp;</td>
+                  <td colspan="5" style="text-align:center"><b>Last year</b></td>
+                  <td colspan="5" style="text-align:center"><b>This year</b></td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td><b>CS</b></td>
+                  <td><b>Eng</b></td>
+                  <td><b>Eco</b></td>
+                  <td><b>Phy</b></td>
+                  <td><b>Psy</b></td>
+                  <td><b>CS</b></td>
+                  <td><b>Eng</b></td>
+                  <td><b>Eco</b></td>
+                  <td><b>Phy</b></td>
+                  <td><b>Psy</b></td>
+                </tr>
+                <tr>
+                  <td><b>Total</b></td>
+                  <!-- last data -->
+                  <td>84</td>
+                  <td>126</td>
+                  <td>43</td>
+                  <td>32</td>
+                  <td>112</td>
+                  <!-- this data -->
+                  <td>82</td>
+                  <td>140</td>
+                  <td>45</td>
+                  <td>34</td>
+                  <td>101</td>
+                </tr>
+                <tr>
+                  <td>% Male</td>
+                  <!-- last data -->
+                  <td>59</td>
+                  <td>84</td>
+                  <td>73</td>
+                  <td>69</td>
+                  <td>20</td>
+                  <!-- this data -->
+                  <td>87</td>
+                  <td>80</td>
+                  <td>69</td>
+                  <td>69</td>
+                  <td>22</td>
+                </tr>
+                <tr>
+                  <td>% Female</td>
+                  <!-- last data -->
+                  <td>41</td>
+                  <td>16</td>
+                  <td>27</td>
+                  <td>31</td>
+                  <td>80</td>
+                  <!-- this data -->
+                  <td>13</td>
+                  <td>20</td>
+                  <td>31</td>
+                  <td>31</td>
+                  <td>78</td>
+                </tr>
+              </table>
+
+            </section>
+          </div>
+
+          <div class="col-md-4">
+            <section class="mb-3">
+
+              <div class="events box">
+                <div class="heading">Events</div>
+
+                <h6>December 1</h6>
+                <h5><a href="#">A great holiday event</a></h4>
+
+                <p>Don't miss this event.</p>
+                <img class="hr" src="images/hr.png" alt="horizontal line graphic">
+                <h6>December 31</h6>
+                <h5><a href="#">New years eve party</a></h4>
+                <p>Ring in the new year with your friends</p>
+                <img class="hr" src="images/hr.png" alt="horizontal line graphic">
+              </div>
+
+              <div id="appForm" class="form-group box">
+
+                <div class="heading">Start your application</div>
+                  <p class="required reqExample">(required fields are in blue)</p>
+
+                <form action="#" method="post">
+
+                  <!-- container for displaying form errors -->
+                  <div id="error"></div>
+
+                  <div class="required form-group">
+                    Name:
+                    <input type="text" name="name" class="form-control" />
+                  </div>
+                  <div class="required form-group">
+                    Email:
+                    <input type="text" name="email" class="form-control" />
+                  </div>
+                  <div class="form-group">
+                    Country:
+                    <input type="text" name="country" class="form-control" />
+                  </div>
+                  <div class="form-group">
+                    <div>Desired major(s):</div>
+                    <div class="" id="majors">
+                      <div class="major"><input type="checkbox"/> Computer Science </div>
+                      <div class="major"><input type="checkbox"/> Engineering </div>
+                      <div class="major"><input type="checkbox"/> Economics </div>
+                      <div class="major"><input type="checkbox"/> Physics </div>
+                      <div class="major"><input type="checkbox"/> Psychology </div>
+                    </div>
+                  </div>
+                  <div id="captcha">
+                    <p>Security Test</p>
+                    <p>Please enter the two words you see below, separated by a space</p>
+                    <input type="text" name="captcha">
+                    <img src="images/captcha.png">
+                  </div>
+
+                  <div class="mt-2">
+                    <input id="submit" type="submit" name="submit" value="Submit" class="btn btn-lg btn-success btn-block" />
+                  </div>
+
+                </form>
+
+              </div>
+
+            </section>
+          </div>
+
+        </div>
+    </div>
+
+    <div id="footer">
+      <div class="main-footer p-5">
+        <div class="container">
+          <ul class="social float-right list-unstyled">
+            <li><a href="https://facebook.com"><img src="images/8675309-social-facebook.png" alt="FB"></a></li>
+            <li><a href="https://twitter.com"><img src="images/8675309-social-twitter.png" alt="TW"></a</li>
+          </ul>
+          <nav>
+            <ul class="list-unstyled">
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Directions</a></li>
+            </ul>
+          </nav>
+          <hr>
+        </div>
+        <div class="container sub-footer">
+          <div id="ccLogo">
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
+          </div>
+          Accessible University by <a href="http://washington.edu/accesscomputing/AU">University of Washington</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+          <p>This product was originally developed with support from the National Institute on Disability and Rehabilitation Research of the U.S. Department of Education (grant #H133D010306), and has been subsequently updated and maintained with support from the National Science Foundation (grant #CNS-054061S). The contents do not necessarily represent the policies of the U.S. federal government, and you should not assume their endorsement.</p>
+          <p>Subsequent modifications to this instance have been made by Duke University to modernize the look, feel, and code.</p>
+        </div>
+      </div>
+    </div>
+
+  </div><!--end #content-->
+
+  <!--containers for displaying modal content-->
+  <div id="modalMask"></div>
+
+  <div id="modalContent">
+    <div class="modalHeading">List of accessibility issues</div>
+    <button type="button" id="modalXButton">x</button>
+    <p>Note: This popup does not receive keyboard focus. The cursor continues to tab down the page behind the it. As a result keyboard-only users cannot dismiss it and screen reader users will not be alerted to it's presence. They will not be able to close it; rendering the webpage useless.</p>
+    <p>On the inaccessible version of this page the following errors can be found:</p>
+    <ol>
+      <li>Missing bypass block <br>(skip-to main content).</li>
+      <li>Improper use of headings</li>
+      <li>Images of text</li>
+      <li>No alternate text on informative images</li>
+      <li>Missing or excessive alternate text on decorative images</li>
+      <li>Insufficient color contrast</li>
+      <li>Insufficient visual cues</li>
+      <li>Inaccessible dropdown menu</li>
+      <li>Redundant, uninformative link text</li>
+      <li>Color used to communicate information</li>
+      <li>Language not specified</li>
+      <li>Missing accessible form markup</li>
+      <li>Inaccessible CAPTCHA</li>
+      <li>Inaccessible validation</li>
+      <li>Missing ARIA landmark roles</li>
+      <li>Inaccessible modal window</li>
+      <li>Inaccessible carousel</li>
+      <li>Missing accessible table markup</li>
+      <li>HTML fails validation</li>
+    </ol>
+    <button class="btn btn-primary" type="button" id="modalOkButton">OK</button>
+  </div>
+
+  <div id="footer" role="bottom" aria-foo="yes"><span>.</div>
+
+</body>
+</html>

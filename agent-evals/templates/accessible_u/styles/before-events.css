@@ -1,0 +1,17 @@
+/*
+ * CSS for Accessible University Demo Site
+ * http://uw.edu/accesscomputing/AU
+ *
+ * before-events.css = Styles unique to inaccessible form
+ *    (shared form styles are in main.css)
+ */
+
+ .events h5,
+ .events h6,
+ .events p {
+  margin-bottom: 1px;
+ }
+ .events p,
+ .events h6 {
+   font-size: 14px;
+ }

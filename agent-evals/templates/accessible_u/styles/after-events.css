@@ -1,0 +1,25 @@
+/*
+ * CSS for Accessible University Demo Site
+ * http://uw.edu/accesscomputing/AU
+ *
+ * after-events.css = Styles unique to inaccessible form
+ *    (shared styles are in main.css)
+ */
+
+.events h3 {
+  margin-top: 0;
+}
+.events li {
+  padding: 0 0 1rem 0;
+  margin-bottom: 1rem;
+  background: url('../images/hr.png') bottom left no-repeat;
+}
+.events h3,
+.events time,
+.events p {
+ margin-bottom: 4px;
+}
+.events time,
+.events p {
+  font-size: 14px;
+}

@@ -1,0 +1,55 @@
+/*
+ * CSS for Accessible University Demo Site
+ * http://uw.edu/accesscomputing/AU
+ *
+ * before-modal.css = Styles for custom inaccessible modal
+ */
+
+#cheatSheetLinkSpan a {
+  cursor: pointer;
+}
+#modalMask {
+  position: fixed;
+	top: 0;
+	left: 0;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	opacity: 0.75;
+	z-index: 10;
+	display: none;
+}
+#modalContent {
+	position: fixed;
+  	top: 50px;
+	left: 10px;
+  	background-color: #fff;
+	border: 1px solid #666;
+	border-radius: 5px;
+	padding: 1em;
+	font-weight: normal;
+	text-align: left;
+	width: 500px;
+	opacity: 1;
+	z-index: 20;
+	display: none;
+}
+.modalHeading {
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+  margin: 0.5em 0.25em 1em;
+}
+#modalXButton {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+#modalOkButton {
+
+}
+#modalContent button {
+  outline: none;
+}

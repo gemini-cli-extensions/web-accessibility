@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Issues - Accessible University Demo Site</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.1em;
+            color: #555;
+            background-color: #ddd;
+            margin: 0 1em;
+            line-height: 1.5;
+        }
+
+        .wrap {
+            background: #fff;
+            max-width: 1000px;
+            display: block;
+            margin: 0 auto;
+            padding: 0em 2em 0 2em;
+        }
+
+        #logo  {
+            border: none;
+            max-width: 400px;
+            display: block;
+            margin: 0 auto;
+            padding: 1em 0 0 0;
+        }
+
+        h1 {
+            padding: 0.5em 0 .5em 0;
+            font-size: 2em;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 1.3em;
+            padding-top: 2em;
+            margin-top: 1em;
+            border-top: 1px solid #767676;
+            color: #000;
+        }
+
+        h3 {
+            font-size: 1.15em;
+        }
+
+        h4 {
+            font-size: 1em;
+        }
+
+        .examples {
+            text-align: center;
+        }
+
+        .examples img {
+            border: 1px solid #ccc;
+        }
+
+        a {
+            color: blue;
+            text-decoration: underline;
+        }
+
+        a:hover,
+        a:focus {
+            text-decoration: none;
+            background-color: yellow;
+            color:#000;
+        }
+
+        p,
+        ol {
+            line-height: 1.5em;
+        }
+
+        ol {}
+
+        ol ul {
+            list-style-type: disc;
+            margin-bottom: 0.75em;
+        }
+
+        li p {
+            margin: 0 0 0.75em 0;
+        }
+
+        li {
+            padding-bottom: 0.75em;
+        }
+
+        ol ul li {
+            padding-bottom: 0;
+        }
+
+        li .label {
+            font-weight: bold;
+        }
+
+        .img-hover-opacity {
+            opacity: .85;
+        }
+        .img-hover-opacity:hover {
+            opacity: 1;
+        }
+
+        .element,
+        .attribute,
+        .code {
+            font-family: Courier, monospace;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        .element {
+            color: green;
+        }
+
+        .attribute {
+            font-style: italic;
+            color: red;
+        }
+
+        .code {
+            color: #CC7A00;
+            /* orange */
+        }
+
+        .snippet {
+            font-family: Courier, monospace;
+            color: #555;
+            margin-bottom: 0.5em;
+        }
+
+        #footer {
+            font-size: 0.9em;
+            width: 100%;
+            padding: 1em 0.5em;
+            border-top: 3px solid #514273;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="wrap">
+    <header>
+        <img id="logo" src="images/8675309-l-o-g-o-after.png" alt="Accessible University logo"/>
+        <h1>Common Accessibility Issues and How to Assess Them</h1>
+    </header>
+    <main>
+    <p>This page summarizes the accessibility issues demonstrated on the Accessible University (AU) home page. An inaccessible before fixes page and accessible after fixes page are provided to contrast the differences between the sites with explanations.<p>
+
+    <div class="container examples">
+        <div class="row">
+            <div class="col-sm-6">
+                <a href="before_u.html">
+                    <strong>Inaccessible Before Fixes Version</strong>
+                    <img class="img-fluid img-hover-opacity" alt="screenshot of before fixes example" src="images/before_screenshot.png"/>
+                </a>
+            </div>
+            <div class="col-sm-6">
+                <a href="after_u.html">
+                    <strong>Accessible After Fixes Version</strong>
+                    <img class="img-fluid img-hover-opacity" alt="screenshot of after fixes example" src="images/after_screenshot.png"/>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <br/>
+
+    <p>
+        Below you will find some "How-to do a web accessibility assessment" videos based on the example sites. You can also <a href="https://youtube.com/playlist?list=PLF4_5fOOz5tlYmG6BnX8q_ILEzBPNrDbK">view a playlist of all the videos on YouTube</a>.
+    </p>
+
+    <ol>
+
+
+        <li>
+            <h2>Missing bypass block (skip-to main content)</h2>
+            <p>
+                A bypass block, otherwise known as a skip-to link, is a mechanism that is available to bypass blocks of content that are repeated on multiple Web pages. In this case, it allows keyboard-only users to skip over the navigation to get to the main content without needing to tab over the entire menu every time they load the page.
+            </p>
+            <p>How to test for Bypass Blocks in Chrome:</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/ZsvZT5lTsFI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </li>
+
+        <li>
+            <h2>Improper use of headings</h2>
+            <p>
+                Headings and subheadings help organize documents,
+                including web pages, so that they are easy to read and understand.
+            </p>
+            <p>
+                Visually, the bad example page appears to include several headings. However, these headings are not marked up explicitly as headings using HTML heading tags (e.g., <span class="element">&lt;h5&gt;</span>, <span  class="element">&lt;h2&gt;</span>). Instead, they are simply marked up as plain text that is bold and large. If HTML heading tags are used, screen reader users have access to this structural information. This helps them to gain a better understanding of how the document is organized. It also helps with navigation: Screen reader users can jump between headings in a document using a single keystroke, which is much more efficient than reading the entire page from beginning to end.
+            </p>
+            <p>How to test for proper use of headings:</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/VlyRHqaS0yQ" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </li>
+
+        <li>
+            <h2>No alternate text on informative images</h2>
+            <p>
+                There are several images on the page. Some are decorative, but the logo, the three photos featured in the carousel, and others communicate important information. Whenever an image communicates information, it requires alternate text so users who are unable to see the image have access to its content.
+            </p>
+            <p>How to test for alternative text on images:</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/RFNu4T6p5B4" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </li>
+
+        <li>
+            <h2>Images of text</h2>
+            <p>
+                Notice the text is embedded in the hero image.  Screen readers cannot read text in images.  They can only read real selectable text.  If a person who was blind was on this site they could not know about the event because the title, date, and location of the event is in the image. If it is unavoidable the alternate text needs to have the same information so users who are unable to see the image have access to its content.
+            </p>
+            <p>How to check for images embedded in text:</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/oyT___Ib_cM" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </li>
+
+        <li>
+            <h2>Missing or excessive alternate text on decorative images</h2>
+            <p>
+                Screen reader users do not need access to images whose purpose is solely decorative. The example on this page is the horizontal line that appears multiple times on the page. The current <span class="attribute">alt</span> attribute for this image is &quot;horizontal line graphic&quot;, which is unnecessary information, and can be especially cumbersome to listen to when it's repeated multiple times on a page. One solution is to present all decorative images as background images in Cascading Style Sheets (CSS). Another is to provide an empty <span class="attribute">alt</span> attribute (<span class="code">alt=&quot;&quot;</span>) for all decorative images. This is standard markup that instructs screen readers to ignore the image.
+            </p>
+        </li>
+
+        <li>
+            <h2>Insufficient color contrast</h2>
+            <p>
+                The navigation menu is difficult to see due to the choice of foreground and background colors. The W3C <a href="http://w3.org/TR/wcag20">Web Content Accessibility Guidelines (WCAG) 2.0</a> includes specific contrast ratios that must be met in order to meet the guidelines at various levels. Contrast can be easily checked with free tools like the <a href="https://www.paciellogroup.com/resources/contrastanalyser/">Colour Contrast Analyser</a> and the <a href="https://addons.mozilla.org/en-US/firefox/addon/wcag-contrast-checker/">WCAG Contrast Checker plugin for Firefox</a>.
+            </p>
+            <p>How to check for insufficient color contrast:</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/sofDmQ3DkOc" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </li>
+
+        <li>
+            <h2>Insufficient visual cues</h2>
+            <p>
+                This page includes visual cues that show mouse users when they're pointing to clickable items on the page such as links. However, this same functionality is not provided for keyboard users, and they would arguably benefit from it even more than mouse users. Without a clear visual indication of one's current location on the page, keyboard users can have a very difficult time getting their bearings as they tab through links and controls. Visual cues for mouse users are typically provided in CSS using the selector <span class="code">:hover</span>. The same visual cues can be replicated for keyboard users by using the selector <span class="code">:focus</span>. Here's an example in CSS:
+            </p>
+
+            <div class="snippet">a:hover, a:focus {<br />
+                &nbsp;color: white;<br />
+                &nbsp;background-color: black;<br />
+                }
+            </div>
+
+            <p>How to check for hover states:</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/JJ6rMXgVDZY" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p>How to check for focus states:</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/qYuQLQFy3ss" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </li>
+
+        <li>
+            <h2>Inaccessible dropdown menu</h2>
+            <p>
+                The navigation menu on this page includes sub-menus that appear when users hover over the menus with a mouse. However, these same menus do not appear for non-mousers. If a user navigates to the menu by pressing tab, the sub-menus do not appear; nor do the main menu items send the user to a new page. They simply don't work. If they did work, screen reader users would depend on supplemental markup added  to the HTML that informs them that an item has a submenu, and whether that submenu is expanded or collapsed. This supplemental markup can be provided using <a href="http://www.w3.org/TR/wai-aria/">Accessible Rich Internet Applications (ARIA)</a>. ARIA is a W3C specification first published in 2014 that is designed to communicate roles, states, and properties of user interface elements to assistive technologies. ARIA is essential for accessibility of today's modern web interfaces. The W3C has created a companion guide <a href="http://www.w3.org/TR/wai-aria-practices-1.1/">WAI-ARIA Authoring Practices</a>, which includes a set of recommended design patterns for common widgets, including a <a href="http://www.w3.org/TR/wai-aria-practices-1.1/#menu"><em>menu</em> design pattern</a>. These standard design patterns include detailed recommendations for how users should be able to interact with the widget using the keyboard, as well as recommendations for which ARIA attributes should be used in order to make the widget accessible using assistive technologies. All dropdown menus should be coded in accordance with these recommendations so users can count on dropdown menus everywhere having a consistent interface.
+            </p>
+            <p>
+                Other menu systems can be found on the WC3 <a href="https://www.w3.org/WAI/tutorials/menus/flyout/">Fly-out Menu suggestions page.</a>
+            </p>
+            <p>How to test if a menu might be compliant:</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/yLOVykqEKAM" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </li>
+
+        <li>
+            <h2>Redundant, uninformative link text</h2>
+            <p>
+                This example includes three links that say "Click here". Screen reader users may encounter these links out of context. For example, many screen readers include functionality that enables users to quickly generate a list of links and navigate through that list. If links are presented out of context, such as in a list of links, they should be unique, and should be meaningful in-and-of-themselves.
+            </p>
+            <p>How to test for redundant link text:</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/yLOVykqEKAM" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </li>
+
+        <li>
+            <h2>Color only used to communicate information</h2>
+            <p>
+                The links within the main content are distinguishable from other text by color alone. Look closely! They're difficult for most people to spot. Even if the color choice had been more dramatic, some users (for example, those who are color blind) would still be unable to distinguish link text from non-link text. This is why browsers underline links by default&amp;it's a good, accessible practice.
+            </p>
+            <p>
+                Also, in the application form, required fields are marked with blue text. Again, even if a more obvious color were chosen, some users would still be unable to identify which fields are required. The solution is to communicate information using other means, in addition to color. For example, the labels for required fields could appear in bold and be marked with a * or if space permits, with "(required)". Also, if markup is available to communicate the same information, use that. For example, in the case of required fields, use the HTML5 <span class="attribute">required</span> attribute, supplemented with <span class="attribute">aria-required="true"</span> for assistive technologies that don't fully support HTML5 attributes.
+            </p>
+            <p>How to check for color only issues:</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/1lULlaVcXg4" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </li>
+
+        <li>
+            <h2>Language not specified</h2>
+            <p>
+                This page includes content in both English and Spanish. Leading screen readers support both of these languages (and many others), and can switch on the fly between languages if they know to do so. If they don't know to do so, an English-speaking screen reader will read the Spanish section using English pronunciation rules, which produces poor if not indecipherable Spanish. The technique for addressing this issue is to provide a <span class="attribute">lang</span> attribute on the <span class="element">&lt;html&gt;</span> element, with the value being the official language code for the primary language used in the document. For example, an English document would include this html tag:
+            </p>
+            <div class="snippet">&lt;html lang=&quot;en&quot;&gt;</div>
+            <p>
+                If the web page includes content that differs from this primary language, the language of that section of content must also be identified in the code. For example, to markup a paragraph as being in Spanish, the paragraph tag would look like this:
+            </p>
+            <div class="snippet">&lt;p lang=&quot;es&quot;&gt;</div>
+        </li>
+
+        <li>
+            <h2>Missing accessible form markup</h2>
+            <p>
+                In the application form, sighted users know which labels accompany the various form fields by their position. In the first six fields the label appears immediately above the form field, and in the set of possible majors the label appears immediately after each checkbox. Although these relationships may seem apparent to sighted users, they're not so obvious to screen reader users. HTML includes markup that enables form fields and their labels to be explicitly associated with one another. If this markup is not present, screen readers have to guess which labels are associated with each field, and they don't always guess correctly. For example, some screen readers incorrectly assume the label for each checkbox is the text that immediately proceeds it, rather than the text that follows it. Therefore, a screen reader user could check the Psychology checkbox, having been erroneously informed by their screen reader that they're checking the Physics checkbox. To explicitly associate labels with form fields, each label must be marked up with the HTML <span class="element">&lt;label&gt;</span> element. The <span class="element">&lt;label&gt;</span> element has a <span class="attribute">for</span> attribute whose value matches the <span class="attribute">id</span> attribute of the associated form field.
+            </p>
+            <p>
+                Also, when a form uses checkboxes, there are typically two pieces of critical information related to each checkbox: The label associated with that checkbox (e.g., Psychology) and the overall question or prompt (e.g., Desired major(s)). In order to explicitly communicate the relationships between all of this information, the entire set of checkboxes and labels, plus the overall question or prompt, should be wrapped in a <span class="element">&lt;fieldset&gt;</span> element, and the question/prompt should be marked up as a <span class="element">&lt;legend&gt;</span>. The individual checkbox labels should be marked up using the <span class="element">&lt;label&gt;</span> element as described above. With this accessible markup in place, screen readers can announce the overall question or prompt as the user enters the fieldset, or as he or she selects one of the checkboxes. This same markup applies to radio buttons.
+            </p>
+            <p>How to check for inaccessible form markup:</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/lRXxWFPIKwA" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </li>
+
+        <li>
+            <h2>Inaccessible CAPTCHA</h2>
+            <p>
+                Online forms often include images of distorted characters called CAPTCHAs ("Completely Automated Public Turing test to tell Computers and Humans Apart"). CAPTCHAs are designed to prevent spammers and other unwanted users from filling out and submitting the form automatically. The usual method for making images accessible (alternate text) would not be feasible for CAPTCHAs since this same technique would make the images accessible to robots. The W3C published a Working Group Note in 2005 that explores the <a href="http://www.w3.org/TR/turingtest/">Inaccessibility of CAPTCHA</a> and proposed possible solutions. Several solutions have been proposed and implemented with some success:
+            </p>
+            <ul>
+                <li>
+                    <p>
+                        Some sites have implemented text CAPTCHAs that ask simple logic questions. An example of this approach is <a href="http://textcaptcha.com/">textCAPTCHA</a>. This is a fully accessible solution, but as spammers' tools get smarter there may be limits to its effectiveness. The accessible version of the AU home page demonstrates this method (note that this is for demonstration purposes only; there is no actual server-side validation).
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Google's <a href="http://www.google.com/recaptcha">reCAPTCHA</a> version 3 seeks to provide a more user-friendly option for everyone, including assistive technology users. Their technology is evolving though, and its accessibility is a moving target. If considering using reCAPTCHA, be sure to investigate its current state of accessibility before deploying. Otherwise your CAPTCHA may block  some users from completing an important task (like submitting an application form).
+                    </p>
+                    <p>
+                        It is important to note that CAPTCHA barriers still exist for deaf-blind users. There can also be cultural barriers around language, culture, and diverse experiences.
+                    </p>
+                </li>
+            </ul>
+            <p>Checking if CAPTCHA might be accessible:</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/X3hKhNQvr2Y" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </li>
+
+        <li>
+            <h2>Inaccessible form validation</h2>
+            <p>
+                On the bad example the user submits the form, it's validated using JavaScript before the data is submitted to the server. If the user's submission fails validation, an error message is displayed at the top of the form and the page is automatically scrolled up to ensure that sighted users are aware of the error.
+            </p>
+            <p>This feature has many problems:</p>
+            <ul>
+                <li>
+                    <p>
+                        Although the error message is clearly visible to sighted users, screen reader users are not informed
+                        that this message has appeared. They might find the message eventually, but their focus is not
+                        automatically taken there. They will most likely become confused since clicking submit seems to have
+                        no effect, but they have no idea why.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        The error message is unclear. It states that there are errors, but does not identify what those errors were. The burden of finding the errors is left to the user, which adversely impacts usability for everyone, but can be especially challenging for screen reader users.
+                    </p>
+                </li>
+            </ul>
+            <p>
+                JavaScript-based form validation can be a useful feature, but it should be designed in a way that considers the needs of all users, including those who can't see the error message visually, and those who are unable to use a mouse. A better design would be one in which:
+            </p>
+            <ul>
+                <li>
+                    <p>the capabilities of HTML5 are fully utilized, including the <span class="attribute">required</span> and <span class="attribute">pattern</span> attributes, as well as <span class="element">&lt;input&gt;</span> types such as <span class="attribute">type="email"</span> and <span class="attribute">type="url"</span>. Using these features enables browsers to provide their own validation, which is likely to be supported by assistive technologies.</p>
+                </li>
+                <li>
+                    <p>the error message includes enough detail so that all users know which fields have errors.</p>
+                </li>
+                <li>
+                    <p>the error message is written to a container that is marked up with <span class="attribute">role=&quot;alert&quot;</span>. This is ARIA markup that results in screen readers announcing the message to users as soon as it appears, regardless of their current location on the page.</p>
+                </li>
+                <li>
+                    <p>the user's focus can be sent automatically to the first field on which a correction is needed</p>
+                </li>
+            </ul>
+            <p>How to check for form validation problems:</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/s6KY4wBXMbI" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </li>
+
+        <li>
+            <h2>Missing ARIA Landmark roles</h2>
+            <p>
+                ARIA includes eight <a href="http://www.w3.org/TR/wai-aria/roles#landmark_roles">Landmark roles</a>, which are specific regions of the page identified according to their function. They are: application, banner, complementary (e.g., a sidebar), contentinfo (e.g., a footer), form, main, navigation, and search. By defining the Landmark role of a block of content (for example <span class="attribute">role="main"</span> for the main content), screen reader users can quickly locate and jump to the section of the page that meets their needs. The accessible version of the AU Home Page uses ARIA Landmarks to mark the banner, main, navigation, form, and contentinfo sections of the page. The navigation menu additionally uses <span class="attribute">aria-label</span> to clearly communicate the function of the navigation menu (in this case, <span class="attribute">aria-label=&quot;Main menu&quot;</span>). This supplemental label is announced by screen readers and is especially helpful for distinguishing between navigation regions if there are more than one of these regions on a page.
+            </p>
+            <p>
+                Some of the ARIA Landmarks map directly to HTML5 elements. For example, <span class="attribute">role="main"</span> is the same as <span class="element">&lt;main&gt;</span> and <span class="attribute">role="navigation"</span> is the same as <span class="element">&lt;nav&gt;</span>. However, it's ok to use both to ensure support for older assistive technologies, which supported ARIA before supporting HTML5.
+            </p>
+            <p>How to check for Landmark roles:</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Whi3ojFfx8w" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </li>
+
+        <li>
+            <h2>Inaccessible modal/popup window</h2>
+            <p>
+                In the "Can You Spot the Barriers?" section of the AU home page, the link that opens the <em>Cheatsheet of Accessibility Issues</em> opens the content in a modal window, which appears in the foreground while background content is masked behind a dark transparency. This is not truly modal, however. If a keyboard user presses the Tab key they may discover that their focus remains in the background, and they may find that it's very difficult to tab to the dialog so they can dismiss it. Also, screen reader users are not aware that a dialog has appeared. Instead, they're likely to be confused because they clicked on a link but nothing seemed to happen.
+            </p>
+            <p>How to check modals/popups for accessibility:</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/TzCk36MRgTk" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </li>
+
+        <li>
+            <h2>Inaccessible carousel</h2>
+            <p>
+                Carousels or slideshows are common features on university home pages. Unless designed and coded with accessibility in mind, these features present a variety of accessibility issues:
+            </p>
+            <ul>
+                <li>
+                    <p>Keyboard users are unable to access all components</p>
+                </li>
+                <li>
+                    <p>Screen reader users are unable to operate the controls or access and understand all content.</p>
+                </li>
+                <li>
+                    <p>People who are distracted by movement or who need more time to read the content are unable to pause the animation.</p>
+                </li>
+            </ul>
+            <p>How to check if a carousel is accessible:</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/wfwOBJJJap8" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </li>
+
+        <li>
+            <h2>Missing accessible table markup</h2>
+            <h3>Forcing two distinct data sets into one table</h3>
+            <p>
+                This is two different sets of data. It is best to split two data sets into two tables rather than forcing them into one. It makes it overly complicated for both sighted users and screen reader users.
+            </p>
+            <p>
+                A plus side of splitting the table into two tables is that we no longer need to use abbreviations of words like "Psy". The user might not know that "Phy" is for Physics. Using the strategy of using <span class="element">&lt;abbr&gt;</span> element to decode the abbreviation would still leave a barrier for sighted users who are not familiar with the <span class="element">&lt;abbr&gt;</span> behavior, keyboard-only users, touch screen users, and some screen reader users.
+            </p>
+            <h3>Missing accessible table markup</h3>
+            <p>
+                Data tables can be challenging for screen reader users to understand, particularly if they have many columns, or a complex layout with nested rows or columns, as is the case with the AU Enrollment Trends table. Imagine reading a table from left to right and top to bottom, with no visual access to the column headers. When you're halfway through the table, will you remember which column you're in? This is not unlike what screen reader users experience as they try to read a data table unless the table includes semantic markup that explicitly defines the relationships between the table's parts. For example, table headers should be marked up with the <span class="element">&lt;th&gt;</span> element. Also, headers should include the <span class="attribute">scope</span> attribute, which identifies whether the cell is a row header (<span class="code">&lt;th scope=&quot;row&quot;&gt;</span>) or a column header (<span class="code">&lt;th scope=&quot;col&quot;&gt;</span>).
+            </p>
+            <p>
+                If the table includes nested rows or columns, the relationships between headers and cells become even more difficult to decipher. In these sorts of tables, there are typically two, three, or more headers that apply to every cell in the table. To explicitly express these relationships using HTML markup, each header needs a unique id (e.g., <span class="code">&lt;th scope=&quot;col&quot; id=&quot;col1&quot;&gt;</span>), and each data cell needs a <span class="attribute">headers</span> attribute which lists the id's of all headers that apply to that cell, separated by a space (e.g., <span class="code">&lt;td headers=&quot;col1a col2a row1&quot;&gt;</span>). When a table includes all of this markup, screen reader users can easily ascertain their current position with a table, and their screen reader can announce all of the headers that apply to the current cell.
+            </p>
+            <p>
+                Also, it is helpful to provide a brief summary of a complex table specifically for screen reader users, as this will help them to understand how the table is organized before they explore it. Prior to HTML5, this was accomplished with the <span class="attribute">summary</span> attribute on the <span class="element">&lt;table&gt;</span> element. In HTML5, a summary can provided in a separate paragraph or div adjacent to the table, and that can be explicitly linked to the <span class="element">&lt;table&gt;</span> element with the <span class="attribute">aria-describedby</span> attribute. The summary might be useful for all users, but if it truly only benefits screen readers, then it can be visually hidden without hiding it from screen reader users. See the accessible version of the AU home page for an example.
+            </p>
+            <p>
+                Also, it is helpful to provide a caption for all tables using the <span class="element">&lt;caption&gt;</span> element, nested within the <span class="element">&lt;table&gt;</span> element. In the accessible version of the AU home page, the table caption "AU Enrollment Trends" is redundant since there is also a heading with this same information immediately prior to the table. However, the caption is still important because it's explicitly associated with the table. If screen reader users jump directly to the table (for example, using the "t" shortcut key in JAWS or NVDA, or the rotor in VoiceOver), their screen reader announces the caption so they can quickly tell which table they're on. As with the table summary, the caption can easily be hidden from sighted users using CSS if it's redundant or unnecessary for them to access this information.
+            </p>
+
+        </li>
+
+        <li>
+            <h2>HTML fails validation</h2>
+            <p>
+                The rules of markup languages like HTML were meant to be followed. If a web page uses non-standard tags or uses standard tags inappropriately, this increases the likelihood that some browsers or assistive technologies will render the page incorrectly. Therefore
+                web pages should be checked with tools like the <a href="http://validator.w3.org/">W3C Markup Validation Service</a>. A check of the inaccessible version of the AU home page results in five errors, all of which are accessibility-related.
+            <p>
+        </li>
+    </ol>
+    </main>
+    <footer>
+
+        <div id="ccLogo">
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img
+                    alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
+        </div>
+        <p>
+            Accessible University by <a href="http://washington.edu/accesscomputing/AU">University of Washington</a> is
+            licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons
+                Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+        </p>
+        <p>This product was originally developed with support from the National Institute on Disability and
+            Rehabilitation Research of the U.S. Department of Education (grant #H133D010306), and has been subsequently
+            updated and maintained with support from the National Science Foundation (grant #CNS-054061S). The contents
+            do not necessarily represent the policies of the U.S. federal government, and you should not assume their
+            endorsement.
+        </p>
+        <p>
+            Subsequent modifications to this instance have been made by Duke University to modernize the look, feel, and code.
+        </p>
+    </footer>
+    </div>
+</body>
+
+</html>

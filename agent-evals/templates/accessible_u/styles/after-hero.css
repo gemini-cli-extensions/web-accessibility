@@ -1,0 +1,57 @@
+/*
+ * CSS for Accessible University Demo Site
+ * http://uw.edu/accesscomputing/AU
+ *
+ * after-hero.css = Styles for accessible hero rotator
+ *
+ * Uses Bootstrap tab interface instead of custom code
+ * https://getbootstrap.com/docs/4.0/components/navs/#tabs
+ *
+ */
+
+/* Hero area */
+
+#myTabContent {
+  border: 1px solid #333;
+  margin-bottom: 1rem;
+}
+.nav-tabs .nav-item {
+  font-size: 12px;
+}
+.nav-tabs .nav-link {
+  border-color: #767676;
+  border-bottom: none;
+  background: linear-gradient(#fff, #cddd);
+}
+.nav-tabs .nav-link:focus {
+  position: relative;
+  z-index: 50;
+}
+
+.nav-tabs .nav-link.active {
+  border-color: #111;
+  color: lightgreen;
+  background: #333;
+}
+.tab-content {
+  background-color: #333;
+  min-height: 50px;
+  color: #fff;
+}
+.tab-content a {
+  color: lightgreen;
+}
+.tab-content a:hover {
+  text-decoration: none;
+}
+.tab-content .tab-pane img {
+  width: 100%
+}
+@media only screen and (min-width: 1000px) {
+  .tab-content .tab-pane .overlay-text {
+    background: rgba(0,0,0,0.5);
+    position: relative;
+    height: 110px;
+    margin-top: -110px;
+  }
+}

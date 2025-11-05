@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Welcome to the Accessible University Demo site</title>
+  <style>
+    #logo {max-width: 400px; margin: 0 auto; display: block;}
+    .wrap {max-width: 900px; margin: 0 auto; line-height: 1.5;}
+    h2, hr { border-bottom: 1px solid black; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header role="banner" class="container clearfix">
+      <h1>
+        <a href="/">
+          <img id="logo" src="images/8675309-l-o-g-o-after.png" alt="Accessible University Welcome" aria-current="page" class="d-block"/>
+        </a>
+      </h1>
+    </header>
+    <main>
+      <h2>A tale of two pages</h2>
+      <p>One page is inaccessible and one has been remediated.</p>
+      <nav aria-label="version">
+        <ul class="utility-menu float-left list-unstyled">
+          <li><a href="before_u.html">Before you (with accessibility problems)</a></li>
+          <li><a href="after_u.html">After you (fixed)</a></li>
+        </ul>
+      </nav>
+      <h2>Purpose</h2>
+      <p>Use the Accessible University site to:</p>
+      <ol>
+        <li>Demonstrate common web accessibility principles at trainings, presentations, and workshops on accessible web
+          design.</li>
+        <li>Learn common web accessibility problems and solutions in an easy-to-understand way.</li>
+      </ol>
+      <h2>Updates from the original Accessible University</h2>
+      <p>This example website was inspired by the <a href="http://www.washington.edu/accesscomputing/AU/">original Accessible University</a>. This new version includes updates to the look, feel, and code. It has been adapted to use the <a href="https://getbootstrap.com/docs/4.0/getting-started/introduction/">Twitter Bootstrap</a> framework. Many components in the Bootstrap framework provide an accessible base to work from. </p>
+      <p>This project can be <a href="https://github.com/OpenAssessItToolkit/accessible_u">found on GitHub</a>.</p>
+    </main>
+    <footer>
+      <hr/>
+      <div class="container sub-footer">
+        <div id="ccLogo">
+          <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License"
+              src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
+        </div>
+        <p>The original Accessible University by <a href="http://washington.edu/accesscomputing/AU">University of Washington</a> is
+        licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons
+          Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+        <p>The original product was originally developed with support from the National Institute on Disability and Rehabilitation
+          Research of the U.S. Department of Education (grant #H133D010306), and was subsequently updated and maintained with support from the National Science Foundation (grant #CNS-054061S). The contents do not necessarily represent the policies of the U.S. federal government, and you should not assume their endorsement.
+        </p>
+        <p>Subsequent modifications to this instance have been made by Duke University to modernize the look, feel, and code.</p>
+      </div>
+    </footer>
+  </div>
+</body>
+
+</html>

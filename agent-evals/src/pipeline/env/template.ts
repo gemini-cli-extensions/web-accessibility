@@ -4,6 +4,7 @@ import { execSync } from "node:child_process";
 
 enum TemplatePlatform {
   NODE,
+  STATIC,
 }
 
 const templates = [
@@ -11,6 +12,10 @@ const templates = [
     name: "next-app-hello-world",
     platform: TemplatePlatform.NODE,
   },
+  {
+    name: "accessible_u",
+    platform: TemplatePlatform.STATIC,
+  }
 ] as const;
 
 export type TemplateName = (typeof templates)[number]["name"];

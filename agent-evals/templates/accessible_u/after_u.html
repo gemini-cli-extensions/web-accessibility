@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>After - Accessible University Demo Site - Accessible Version</title>
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <link href="styles/bootstrap.min.css" rel="stylesheet">
+	<link href="styles/after-main.css" rel="stylesheet">
+	<link href="styles/after-menu.css" rel="stylesheet">
+  <link href="styles/after-events.css" rel="stylesheet">
+	<link href="styles/after-form.css" rel="stylesheet">
+	<link href="styles/after-modal.css" rel="stylesheet">
+	<link href="styles/after-hero.css" rel="stylesheet">
+  <script src="scripts/bootstrap.bundle.min.js"></script>
+	<script src="scripts/after-menu.js"></script>
+	<script src="scripts/after-form.js"></script>
+	<script src="scripts/after-modal.js"></script>
+	<script src="scripts/after-hero.js"></script>
+</head>
+<body>
+  <a href="#main" class="sr-only sr-only-focusable">Skip to main content</a>
+  <div id="content">
+
+    <header class="container clearfix">
+      <nav aria-label="version" class="float-right">
+        <span class="float-left">Examples:</span>
+        <ul class="utility-menu float-left list-unstyled">
+          <li><a href="before_u.html" aria-label="before version with problems">Before</a></li>
+          <li><a href="after_u.html" aria-current="page" aria-label="after version with fixes">After</a></li>
+        </ul>
+      </nav>
+      <h1>
+  	    <a class="logo-link" href="/" aria-current="page" >
+          <img id="logo" src="images/8675309-l-o-g-o-after.png" alt="Accessible University Home" class="d-block"/>
+        </a>
+      </h1>
+    </header>
+
+    <nav aria-label="main menu" class="navbar navbar-expand-lg navbar-dark bg-dark bg-primary md-3">
+      <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <button class="nav-link dropdown-toggle"
+                  data-toggle="dropdown" aria-expanded="false">
+                  About
+            </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">News</a></li>
+                <li><a class="dropdown-item" href="#">Governance</a></li>
+                <li><a class="dropdown-item" href="#">Diversity</a></li>
+                <li><a class="dropdown-item" href="#">Contact Us</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <button class="nav-link dropdown-toggle"
+                  data-toggle="dropdown" aria-expanded="false">
+                  Academics
+            </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Degree Programs</a></li>
+                <li><a class="dropdown-item" href="#">AU Faculty</a></li>
+                <li><a class="dropdown-item" href="#">Distance Learning</a></li>
+                <li><a class="dropdown-item" href="#">Libraries</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <button class="nav-link dropdown-toggle"
+                  data-toggle="dropdown" aria-expanded="false">
+                  Admissions
+            </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Undergraduate</a></li>
+                <li><a class="dropdown-item" href="#">Graduate</a></li>
+                <li><a class="dropdown-item" href="#">Tuition</a></li>
+                <li><a class="dropdown-item" href="#">Financial Aid</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="#">
+                  Visitors
+              </a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <label for="search-input" class="sr-only">Search</label>
+            <input id="search-input" class="form-control mr-sm-2" type="search" placeholder="Search">
+            <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+<!--
+	empty message div, will be populated dynamically
+	and its contents will be announced to screen reader users thanks to role="alert"
+-->
+    <div id="errorMsg" role="alert"></div>
+
+    <br/>
+    <div class="container">
+      <div class="row">
+        <main class="col-md-8" id="main"  tabindex="-1">
+          <div class="mb-3">
+            <h2 class="sr-only">News</h2>
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item" role="presentation">
+                  <a class="nav-link active" id="first-tab" data-toggle="tab" href="#first" role="tab" aria-controls="first" aria-selected="true">Upcoming Concert</a>
+              </li>
+              <li class="nav-item" role="presentation">
+                  <a class="nav-link" id="second-tab" data-toggle="tab" href="#second" role="tab" aria-controls="second" aria-selected="false">Going Green</a>
+              </li>
+              <li class="nav-item" role="presentation">
+                  <a class="nav-link" id="third-tab" data-toggle="tab" href="#third" role="tab" aria-controls="third" aria-selected="false">New Construction</a>
+              </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="first" role="tabpanel" aria-labelledby="first-tab">
+                  <img src="images/8675309-after_brass_band.jpg" alt="brass band ensemble performing in University Chapel"/>
+                  <div class="p-3 overlay-text clearfix">
+                    <h3><a href="somepage.html?ref=Slide%1">Accessible University Brass Ensemble</a></h3>
+                    <p>Thursday, December 9 at 9:00 AM at University Chapel</p>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="second" role="tabpanel" aria-labelledby="second-tab">
+                  <img src="images/8675309-after_articulated_bus.jpg" alt="New double length articulated bus pulls up to pick up students"/>
+                  <div class="p-3 overlay-text">
+                    <h3><a href="somepage.html?ref=Slide%2">Introducing our new fleet of electric buses</a></h3>
+                    <p>Accessible university has replaced its old buses with electric buses.</p>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="third" role="tabpanel" aria-labelledby="third-tab">
+                  <img src="images/8675309-after_construction.jpg" alt="Construction workers replacing the roof of Smith Dormitory"/>
+                  <div class="p-3 overlay-text">
+                    <h3><a href="somepage.html?ref=Slide3">Smith Dormitory Construction</a></h3>
+                    <p>Students from Smith Dormitory will be temporarily relocated.</p>
+                  </div>
+                </div>
+            </div>
+
+            <div class="section">
+              <h2>Welcome!</h2>
+              <p>Accessible University (AU) is a <a href="https://www.merriam-webster.com/dictionary/fictional">fictional</a> <a href="https://en.wikipedia.org/wiki/University">university</a>, and this is its
+                fictional home page. This page is designed to demonstrate a variety of
+                common web design <a href="https://www.merriam-webster.com/dictionary/problems">problems</a> that result in visitors with disabilities
+                being unable to access the content or features of a web page.
+                Although the heading at the top of this section of the page
+                suggests that AU may be a welcoming institution,
+                the inaccessible design of this page sends the opposite message.
+              </p>
+            </div>
+
+            <div class="section" lang="es">
+              <h2>Bienvenido!</h2>
+              <p lang="es">Accesible Universidad (UA) es una universidad ficticia, y esta es su
+                página de ficción. Esta página está diseñada para demostrar una variedad de
+                común de diseño web que se traducen en problemas de los visitantes con discapacidad
+                no poder acceder al contenido o las características de una página web.
+                Aunque el título en la parte superior de esta sección de la página
+                sugiere que AU puede ser una institución de bienvenida,
+                el diseño inaccesible de esta página envía el mensaje opuesto.
+              </p>
+            </div>
+
+            <div class="section">
+              <h2>Can you spot the barriers?</h2>
+              <p><img  style="float:left;max-width:200px;margin-right:10px"  src="images/8675309-block.jpg" alt="Sign that says, road closed, which presents a barrier to using the road"/>This page is an improved version, with accessibility issues corrected.
+                Details about all known issues are on the <a href="issues.html">List of Issues</a> page.
+                To see the original issues, consult the <a href="before_u.html">Inaccessible version</a>.
+              </p>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                View a list of accessibility issues
+              </button>
+            </div>
+
+            <div class="section box">
+              <h2>AU Enrollment Trends</h2>
+
+              <!-- in HTML4 could have used the <table> summary attribute. No longer valid in HTML5 -->
+              <div id="table-summary_last" class="sr-only">
+                This table shows enrollment over a one year period by subject and gender.
+                Last academic year is arranged in columns,
+                with five subjects arranged as columns nested within the year columns.
+                Total enrollment, and male and female enrollment percentages, are arranged in rows.
+              </div>
+
+              <h3>Last year</h3>
+              <table id="enrollment_last" class="table table-responsive-xl" aria-describedby="table-summary_last">
+                <thead>
+                  <tr>
+                    <th scope="row">Categories</th>
+                    <th scope="col">Computer Science</th>
+                    <th scope="col">English</th>
+                    <th scope="col">Economics</th>
+                    <th scope="col">Physics</th>
+                    <th scope="col">Psychology</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Total</th>
+                    <td>84</td>
+                    <td>126</td>
+                    <td>43</td>
+                    <td>32</td>
+                    <td>112</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">% Male</th>
+                    <td>59%</td>
+                    <td>84%</td>
+                    <td>73%</td>
+                    <td>69%</td>
+                    <td>20%</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" >% Female</th>
+                    <td>41%</td>
+                    <td>16%</td>
+                    <td>27%</td>
+                    <td>31%</td>
+                    <td>80%</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div id="table-summary_this" class="sr-only">
+                This table shows enrollment over a one-year period by subject and gender.
+                This academic year is arranged in columns,
+                with five subjects arranged as columns nested within the year columns.
+                Total enrollment, and male and female enrollment percentages, are arranged in rows.
+              </div>
+
+              <h3>This year</h3>
+              <table id="enrollment_this" class="table table-responsive-xl" aria-describedby="table-summary_this">
+                <thead>
+                  <tr>
+                    <th scope="row">Categories</th>
+                    <th scope="col">Computer Science</th>
+                    <th scope="col">English</th>
+                    <th scope="col">Economics</th>
+                    <th scope="col">Physics</th>
+                    <th scope="col">Psychology</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Total</th>
+                    <td>82</td>
+                    <td>140</td>
+                    <td>45</td>
+                    <td>34</td>
+                    <td>101</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">% Male</th>
+                    <td>87%</td>
+                    <td>80%</td>
+                    <td>69%</td>
+                    <td>69%</td>
+                    <td>22%</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">% Female</th>
+                    <td>13%</td>
+                    <td>20%</td>
+                    <td>31%</td>
+                    <td>31%</td>
+                    <td>78%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </main>
+
+        <aside class="col-md-4">
+          <section class=" mb-3">
+
+            <div class="events box">
+              <h2>Events</h2>
+              <ol class="list-unstyled">
+                <li>
+                  <time datetime="2021-12-01">December 1</time>
+                  <h3><a href="#">A great holiday event</a></h3>
+                  <p>Don't miss this event.</p>
+                </li>
+                <li>
+                  <time datetime="2021-12-31">December 31</time>
+                  <h3><a href="#">New years eve party</a></h3>
+                  <p>Ring in the new year with your friends.</p>
+                </li>
+              </ol>
+            </div>
+
+            <div id="appForm" role="form" class="form-group box" aria-labelledby="appFormHeading">
+
+              <h2 id="appFormHeading">Start your application</h2>
+              <p>Fields with a <strong>*</strong> are required.</p>
+              <form action="after_u.html?submitted=yes" method="post">
+
+                <div class="required form-group">
+                  <label for="name">Name: *</label>
+                  <input id="name" type="text" name="name" class="form-control" autocomplete="name" required/>
+                </div>
+                <div class="required form-group">
+                  <label for="email">Email: *</label>
+                  <input id="email" type="email" name="email" class="form-control" autocomplete="email" required/>
+                </div>
+                <div class="form-group">
+                  <label for="country">Country:</label>
+                  <input type="text" name="country" id="country" class="form-control" autocomplete="country-name"/>
+                </div>
+
+                <fieldset id="majors">
+                  <legend>Desired major(s):</legend>
+                  <ul class="list-unstyled">
+                    <li>
+                      <label for="cs">Computer Science</label>
+                      <input type="checkbox" name="major_cs" id="cs"/>
+                    </li>
+                    <li>
+                      <label for="eng">Engineering</label>
+                      <input type="checkbox" name="major_eng" id="eng"/>
+                    </li>
+                    <li>
+                      <label for="eco">Economics</label>
+                      <input type="checkbox" name="major_econ" id="eco"/>
+                    </li>
+                    <li>
+                      <label for="phy">Physics</label>
+                      <input type="checkbox" name="major_phy" id="phy"/>
+                    </li>
+                    <li>
+                      <label for="psy">Psychology</label>
+                      <input type="checkbox" name="major_psy" id="psy"/>
+                    </li>
+                  </ul>
+                </fieldset>
+
+                <div id="captcha">
+                  <img style="width:100%;" src="images/not-robot.png" alt="Non-functional. I am not a robot. reCAPTCHA version 3 static example."/>
+                </div>
+
+                <div class="mt-2">
+                  <input id="submit" type="submit" name="submit" value="Submit" class="btn btn-lg btn-success btn-block" />
+                </div>
+              </form>
+            </div>
+
+          </section>
+        </aside>
+      </div>
+    </div>
+
+    <footer>
+      <div class="main-footer p-5">
+        <div class="container">
+          <ul class="social float-right list-unstyled">
+            <li><a href="https://facebook.com"><img src="images/8675309-social-facebook.png" alt="Visit us on Facebook"></a></li>
+            <li><a href="https://twitter.com"><img src="images/8675309-social-twitter.png" alt="Visit us on Twitter"></a></li>
+          </ul>
+          <nav aria-label="footer menu">
+            <ul class="list-unstyled">
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Directions</a></li>
+            </ul>
+          </nav>
+          <hr>
+        </div>
+        <div class="container sub-footer">
+          <div id="ccLogo">
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
+          </div>
+          Accessible University by <a href="http://washington.edu/accesscomputing/AU">University of Washington</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+          <p>This product was originally developed with support from the National Institute on Disability and Rehabilitation Research of the U.S. Department of Education (grant #H133D010306), and has been subsequently updated and maintained with support from the National Science Foundation (grant #CNS-054061S). The contents do not necessarily represent the policies of the U.S. federal government, and you should not assume their endorsement.</p>
+          <p>Subsequent modifications to this instance have been made by Duke University to modernize the look, feel, and code.</p>
+        </div>
+      </div>
+    </footer>
+
+  </div><!--end #content-->
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="exampleModalLabel">List of accessibility issues</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>On the inaccessible version of this page the following errors can be found:</p>
+          <ol>
+            <li>Missing bypass block (skip-to main content).</li>
+            <li>Improper use of headings</li>
+            <li>Images of text</li>
+            <li>No alternate text on informative images</li>
+            <li>Missing or excessive alternate text on decorative images</li>
+            <li>Insufficient color contrast</li>
+            <li>Insufficient visual cues</li>
+            <li>Inaccessible dropdown menu</li>
+            <li>Redundant, uninformative link text</li>
+            <li>Color used to communicate information</li>
+            <li>Language not specified</li>
+            <li>Missing accessible form markup</li>
+            <li>Inaccessible CAPTCHA</li>
+            <li>Inaccessible validation</li>
+            <li>Missing ARIA landmark roles</li>
+            <li>Inaccessible modal window</li>
+            <li>Inaccessible carousel</li>
+            <li>Missing accessible table markup</li>
+            <li>HTML fails validation</li>
+          </ol>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

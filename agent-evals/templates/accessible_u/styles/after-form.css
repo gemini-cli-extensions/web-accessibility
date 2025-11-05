@@ -1,0 +1,23 @@
+/*
+ * CSS for Accessible University Demo Site
+ * http://uw.edu/accesscomputing/AU
+ *
+ * after-form.css = Styles unique to inaccessible form
+ *    (shared form styles are in main.css)
+ *
+ * Uses Bootstrap styles for forms
+ * https://getbootstrap.com/docs/4.0/components/forms/
+ */
+
+legend {
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+#majors li input {
+  float: left;
+  margin-top:5px;
+  margin-right: 5px;
+}
+.required {
+  font-weight: bold;
+}

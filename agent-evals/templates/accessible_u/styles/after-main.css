@@ -1,0 +1,98 @@
+/*
+ * CSS for Accessible University Demo Site
+ * http://uw.edu/accesscomputing/AU
+ *
+ * after-main.css = Styles for accessible version
+ */
+
+
+/*
+ * Standard HTML Elements
+ *
+ */
+ body {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+a {
+ color: green;
+}
+a:hover {
+ text-decoration: none;
+}
+h1 {
+  margin: 0;
+  padding: 0;
+}
+h2 {
+  font-family: 'Times New Roman', Times, serif;
+  letter-spacing: -0.04em;
+  border-bottom: 1px solid #808080;
+}
+h3 {
+  font-size: 1.2em;
+  margin: 0.5em 0;
+}
+a {
+	text-decoration: underline;
+}
+p {
+  line-height: 1.5;
+}
+
+/*
+ * Clear visible focus
+ * for keyboard users
+ *
+ */
+:focus {
+  outline: 3px solid rgba(23, 171, 23, 0.8) !important;
+}
+
+/*
+ * Custom styles
+ */
+a.logo-link {
+  display:block;
+  max-width:400px;
+  float:left;
+}
+#logo {
+  width: 100%;
+}
+.box {
+  padding: 1rem ;
+  border:1px solid #f1f1f1;
+  border-top: 5px solid green;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+  background: #f9f9f9;
+}
+.btn {
+  font-size: 14pt;
+  font-weight: bold;
+}
+table {
+  text-align: center;
+}
+
+
+
+/*
+ * Footer styles
+ *
+ */
+
+ .main-footer {
+  background: #333;
+  color: #fff;
+}
+.main-footer a {
+  background: #333;
+  color: lightgreen
+}
+.social li {
+  display: inline-block;
+}
+hr {
+  border-bottom: 1px solid #999;
+}
