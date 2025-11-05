@@ -112,12 +112,13 @@ export class InteractiveCLI {
     let counter = 0;
     const repetitionsUntilComplete = 3;
     const stoppedChanging = await poll(() => {
-      if (lastOutput === this.turnOutput) {
+      const cleanOutput = stripAnsi(this.turnOutput);
+      if (lastOutput === cleanOutput) {
         counter += 1;
         return counter > repetitionsUntilComplete;
       }
       counter = 0;
-      lastOutput = this.turnOutput;
+      lastOutput = cleanOutput;
       return false;
     }, timeout);
 
