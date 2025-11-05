@@ -25,6 +25,34 @@ function formatAxeResults(result: AxeResults) {
     nodes: violation.nodes.map((node) => ({
       html: node.html,
       selector: node.target.join(', '),
+
+      // Enhanced: Include detailed diagnostic data from all check types
+      failureDetails: [
+        // 'any' checks: at least one must pass
+        ...node.any.map(check => ({
+          checkId: check.id,
+          impact: check.impact,
+          message: check.message,
+          data: check.data
+        })),
+        // 'all' checks: all must pass
+        ...node.all.map(check => ({
+          checkId: check.id,
+          impact: check.impact,
+          message: check.message,
+          data: check.data
+        })),
+        // 'none' checks: none should be present (inverse)
+        ...node.none.map(check => ({
+          checkId: check.id,
+          impact: check.impact,
+          message: check.message,
+          data: check.data
+        }))
+      ].filter(detail => detail.data !== null && detail.data !== undefined),
+
+      // Include failure summary for human-readable context
+      failureSummary: node.failureSummary,
     })),
   }));
 

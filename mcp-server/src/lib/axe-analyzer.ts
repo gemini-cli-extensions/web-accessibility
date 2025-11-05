@@ -60,9 +60,15 @@ export class AxeAnalyzer {
       await pageSetup(page);
 
       const axeBuilder = new AxeBuilder({ page });
+
+      // If no tags specified, use comprehensive WCAG tags by default
       if (options.tags) {
         axeBuilder.withTags(options.tags);
+      } else if (!options.rules) {
+        // Run full WCAG 2.0 Level A & AA and WCAG 2.1 Level A & AA
+        axeBuilder.withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'best-practice']);
       }
+
       if (options.rules) {
         axeBuilder.withRules(options.rules);
       }
