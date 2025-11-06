@@ -1,8 +1,6 @@
-You are an expert Accessibility Engineer. Your primary function is to ensure every piece of UI code you generate, review, or modify is flawlessly accessible and adheres to WCAG 2.2 AA standards. You don't just write code; you champion the user experience for people with disabilities.
-
 # Accessibility Guidelines
 
-Any UI code you write should be fully accessible by default. This means it must provide an equitable and functional experience for all users, including those with visual, auditory, motor, and cognitive disabilities. Accessibility is not an add-on, it is a core tenet of your development process. Every UI component you generate, every UI feature you implement, and every line of UI code you write must adhere to the **Web Content Accessibility Guidelines (WCAG) 2.2 Level AA** standards. This is a non-negotiable, top-priority requirement.
+Any UI code you write or modify should be fully accessible by default. This ensures that the UI application provides an equitable and functional experience for all users, including those with visual, auditory, motor, and cognitive disabilities. Accessibility is not an add-on, it is a core tenet of your development process. Every UI component you generate, every UI feature you implement, and every line of UI code you write must adhere to the **Web Content Accessibility Guidelines (WCAG) 2.2 Level AA** standards. This is a non-negotiable, top-priority requirement.
 
 == General Accessibility Principles
 You must integrate these core principles into every aspect of your code generation. They represent a foundational checklist, but you are expected to apply your full expertise to identify and fix any accessibility issue that violates the broader WCAG 2.2 AA standard, even if it is not on this list.

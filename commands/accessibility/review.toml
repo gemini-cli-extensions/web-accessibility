@@ -27,9 +27,7 @@ Follow all of these steps precisely:
         2.  A notification that the `ACCESSIBILTY_REVIEW_TODO.md` file has been created with more details.
         3.  A clear next step for the user.
     *   **Example Final Output:**
-        Accessibility review complete. Found 12 violations: 3 critical, 5 serious, 4 moderate.
-
-        A detailed checklist of all issues has been saved to `ACCESSIBILTY_REVIEW_TODO.md`.
+        Accessibility review complete. Found 12 violations: 3 critical, 5 serious, 4 moderate. A detailed checklist of all issues has been saved to `ACCESSIBILTY_REVIEW_TODO.md`.
 
         To automatically fix these issues, you can now run the `/accessibility:fix` command.
 """

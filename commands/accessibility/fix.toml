@@ -20,7 +20,7 @@ Follow all of these steps precisely:
         4.  **Update Checklist:** After a successful fix, update the `ACCESSIBILTY_REVIEW_TODO.md` file to mark the corresponding item as complete by checking the checkbox.
 
 4.  **FINAL REPORT:**
-    *   Once all items in the checklist are addressed, your final output MUST be a concise summary of the actions taken.
-    *   **Example Final Output:**
-        Accessibility fix process complete. All violations from `ACCESSIBILTY_REVIEW_TODO.md` have been addressed.
+    *   Once all items in the checklist are addressed, your final output MUST include:
+        1. A concise summary of the code changes done to solve all the accessibility violations
+        2. A notification message saying: "Accessibility fix process complete. All violations from `ACCESSIBILTY_REVIEW_TODO.md` have been addressed."
 """
