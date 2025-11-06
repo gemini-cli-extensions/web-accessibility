@@ -6,7 +6,6 @@ import { randomBytes } from "node:crypto";
 import { mkdirSync } from "node:fs";
 import { AgentTestRunner } from "./runner/agent-test-runner.js";
 import { GeminiCliRunner } from "./runner/gemini-cli-runner.js";
-import { addCleanup } from "../mocha/hooks.js";
 import { TemplateName, buildTemplates } from "./env/template.js";
 
 export * from "./runner/agent-test-runner.js";
@@ -46,15 +45,34 @@ export async function startAgentTest(
   const run = new GeminiCliRunner(testName, testDir, runDir);
   await run.waitForReadyPrompt();
 
-  addCleanup(async () => {
+  addCleanupAgentTest(async () => {
     await run.exit();
   });
 
   return { runner: run, projectDir: runDir };
 }
 
+export async function cleanupAgentTest() {
+  if (cleanupFunctions.length > 0) {
+    console.log(`Running global cleanup for ${cleanupFunctions.length} items...`);
+    const results = await Promise.allSettled(cleanupFunctions.map((fn) => fn()));
+    for (const result of results) {
+      if (result.status === "rejected") {
+        console.error("Error during cleanup:", result.reason);
+      }
+    }
+    cleanupFunctions = [];
+  }
+}
+
+let cleanupFunctions: (() => Promise<void>)[] = [];
+
+export function addCleanupAgentTest(fn: () => Promise<void>) {
+  cleanupFunctions.push(fn);
+}
+
 function createRunDirectory(testName: string): { testDir: string; runDir: string } {
-  const sanitizedName = testName.toLowerCase().replace(/[^a-z0-9]/g, "-");
+  const sanitizedName = testName.toLowerCase().replace(/[^a-z0-9]/g, "-").slice(0, 10);
   const testDir = path.resolve(
     path.join("output", dateName, `${sanitizedName}-${randomBytes(8).toString("hex")}`),
   );

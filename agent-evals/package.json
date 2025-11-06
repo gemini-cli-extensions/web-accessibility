@@ -21,6 +21,8 @@
     "mocha": "^11.7.1",
     "node-pty": "^1.0.0",
     "strip-ansi": "^7.1.0",
-    "tsx": "^4.11.0"
+    "tsx": "^4.11.0",
+    "playwright": "^1.55.0",
+    "@axe-core/playwright": "^4.10.2"
   }
 }

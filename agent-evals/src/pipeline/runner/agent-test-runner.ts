@@ -19,11 +19,4 @@ export interface AgentTestRunner {
    * an event is not found
    */
   expectToolCalls(tools: ToolDef[]): Promise<void>;
-
-  /**
-   * Runs a shell command in the test's project directory and waits for it
-   * to emit a specific pattern on stdout, then returns the output.
-   * This is useful for starting a dev server and getting its URL.
-   */
-  runCommand(command: string, waitFor?: string | RegExp): Promise<string>;
 }
