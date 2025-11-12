@@ -216,33 +216,4 @@ export function registerA11yTools(server: McpServer, analyzer: AxeAnalyzer) {
       };
     }
   );
-
-  // TODO(mayurvaid): Enable when ready.
-  // registerUpcomingA11yTools(server, analyzer);
-}
-
-
-function registerUpcomingA11yTools(server: McpServer, analyzer: AxeAnalyzer) {
-  // Placeholder for future accessibility tools.
-
-  // Tool for analyzing an HTML string.
-  server.registerTool(
-    'a11y_audit_html_string',
-    {
-      description: 'Audits a string of HTML content for accessibility violations.',
-      inputSchema: z.object({
-        html: z.string().describe('The valid HTML string to analyze.'),
-        tags: z
-          .array(z.string())
-          .optional()
-          .describe('Optional list of axe-core tags to filter the rules.'),
-      }).shape,
-    },
-    async ({ html, tags }: { html: string; tags?: string[] }) => {
-      const result = await analyzer.analyze((page) => page.setContent(html), {
-        tags,
-      });
-      return formatAxeResults(result);
-    }
-  );
 }
