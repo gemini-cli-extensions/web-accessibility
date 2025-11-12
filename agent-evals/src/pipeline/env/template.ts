@@ -11,10 +11,6 @@ const templates = [
   {
     name: "next-app-hello-world",
     platform: TemplatePlatform.NODE,
-  },
-  {
-    name: "accessible_u",
-    platform: TemplatePlatform.STATIC,
   }
 ] as const;
 
