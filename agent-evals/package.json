@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "test": "npm run build && mocha 'lib/**/*.spec.js' --reporter spec",
-    "test:base": "BASE_GEMINI_CLI=true npm run test"
+    "test:base": "WITHOUT_EXTENSION=true npm run test"
   },
   "keywords": [],
   "author": "",

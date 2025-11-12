@@ -9,11 +9,12 @@ import { GeminiCliRunner } from "./runner/gemini-cli-runner.js";
 import { TemplateName, buildTemplates } from "./env/template.js";
 
 export * from "./runner/agent-test-runner.js";
+export { TemplateName } from "./env/template.js";
 
 const dateName = new Date().toISOString().replace("T", "_").replace(/:/g, "-").replace(".", "-");
 
 export async function setupEnvironment(): Promise<void> {
-  if (process.env.BASE_GEMINI_CLI) {
+  if (process.env.WITHOUT_EXTENSION) {
     clearUserAccessibilityExtension();
   } else {
     installAccessibilityExtension();
