@@ -18,16 +18,16 @@ Follow all of these steps precisely:
     *   If the result is empty (no violations found), do nothing and output: "No accessibility violations were found."
     *   Otherwise:
         1.  Create a detailed markdown checklist of all violations.
-        2.  Use the tools available to write this checklist to a new file named `ACCESSIBILTY_REVIEW_TODO.md` in the current directory. Remember to give the absolute path of the file `ACCESSIBILTY_REVIEW_TODO.md` while asking to write it.
+        2.  Use the tools available to write this checklist to a new file named `ACCESSIBILITY_REVIEW_TODO.md` in the current directory. Remember to give the absolute path of the file `ACCESSIBILITY_REVIEW_TODO.md` while asking to write it.
         3.  Prepare a high-level summary of the findings (e.g., "Found 12 violations: 3 critical, 5 serious, 4 moderate").
 
 4.  **FINAL REPORT:**
     *   Your final output must be a helpful and clear report that includes:
         1.  The summary of violations you prepared.
-        2.  A notification that the `ACCESSIBILTY_REVIEW_TODO.md` file has been created with more details.
+        2.  A notification that the `ACCESSIBILITY_REVIEW_TODO.md` file has been created with more details.
         3.  A clear next step for the user.
     *   **Example Final Output:**
-        Accessibility review complete. Found 12 violations: 3 critical, 5 serious, 4 moderate. A detailed checklist of all issues has been saved to `ACCESSIBILTY_REVIEW_TODO.md`.
+        Accessibility review complete. Found 12 violations: 3 critical, 5 serious, 4 moderate. A detailed checklist of all issues has been saved to `ACCESSIBILITY_REVIEW_TODO.md`.
 
         To automatically fix these issues, you can now run the `/accessibility:fix` command.
 """
