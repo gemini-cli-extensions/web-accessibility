@@ -1,53 +1,95 @@
-# New Project Template
+# Web Accessibility Gemini CLI Extension
 
-This repository contains a template that can be used to seed a repository for a
-new Google open source project.
+The Web Accessibility extension is an open-source Gemini CLI extension that enhances your development workflow by connecting Gemini CLI with trusted accessibility expertise. This integration automates the full cycle of web accessibility testing and remediation directly within your command line, streamlining the creation of inclusive and compliant software.
 
-See [go/releasing](http://go/releasing) (available externally at
-https://opensource.google/documentation/reference/releasing) for more information about
-releasing a new Google open source project.
+## Features
 
-This template uses the Apache license, as is Google's default.  See the
-documentation for instructions on using alternate license.
+-   **Accessible Code Writing Mindset:** Write accessible code from the start, making it an integral part of the development workflow.
+-   **Finds Accessibility Issues:** Runs a comprehensive audit on your local web application using the powerful `axe-core` engine and generates a clear `ACCESSIBILITY_REVIEW_TODO.md` file listing all violations.
+-   **Fixes Violations Automatically:** Reads the generated `ACCESSIBILITY_REVIEW_TODO.md` file and attempts to fix the violations in your codebase.
+-   **Works Within Your Terminal:** The entire process, from auditing to fixing, happens in your command line using [Gemini CLI](https://github.com/google-gemini/gemini-cli), so you don't have to switch between different tools.
 
-## How to use this template
+## Prerequisites
 
-1. Clone it from GitHub.
-    * There is no reason to fork it.
-1. Create a new local repository and copy the files from this repo into it.
-1. Modify README.md and docs/contributing.md to represent your project, not the
-   template project.
-1. Develop your new project!
+Before you begin, ensure you have the following:
 
-``` shell
-git clone https://github.com/google/new-project
-mkdir my-new-thing
-cd my-new-thing
-git init
-cp -r ../new-project/* ../new-project/.github .
-git add *
-git commit -a -m 'Boilerplate for new Google open source project'
+- [Gemini CLI](https://github.com/google-gemini/gemini-cli) installed with version **+v0.6.0**.
+
+## Installation
+
+Install the web-accessibility extension by running the following command from your terminal (requires Gemini CLI v0.4.0 or newer):
+
+```bash
+gemini extensions install https://github.com/gemini-cli-extensions/web-accessibility
 ```
 
-## Source Code Headers
+## Usage Workflow
 
-Every file containing source code must include copyright and license
-information. This includes any JS/CSS files that you might be serving out to
-browsers. (This is to help well-intentioned people avoid accidental copying that
-doesn't comply with the license.)
+This extension adds adds two new commands to Gemini CLI, `/accessibility:review` and `/accessibility:fix`. Here’s a typical workflow for using these commands to improve the accessibility of your web application:
 
-Apache header:
+### Step 1: Navigate to Your Project
 
-    Copyright 2024 Google LLC
+Open your terminal and change the directory to the root of your web application's project.
 
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
+```bash
+cd /path/to/your-web-app
+```
 
-        https://www.apache.org/licenses/LICENSE-2.0
+### Step 2: Start Your Development Server
 
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
+Run your local development server as you normally would. For example:
+
+```bash
+npm run dev
+```
+
+Make sure your application is running and accessible.
+
+### Step 3: Run the Accessibility Review
+
+Use the `review` command to audit your running application. You must provide the URL where your application is being served (e.g., `http://localhost:3000`).
+
+```bash
+/accessibility:review <url>
+```
+
+The extension will perform an audit and create a file named `ACCESSIBILITY_REVIEW_TODO.md` in your project's root directory. This file contains a detailed checklist of all the accessibility violations found.
+
+**Important:** It is recommended to run this command from the root directory of your web application's codebase, as the generated `ACCESSIBILITY_REVIEW_TODO.md` file is looked for and used by the `fix` command to work on your codebase and resolve the accessibility violations.
+
+### Step 4: Automatically Fix Violations
+
+After the review is complete, you can use the `fix` command to automatically correct the issues listed in the `ACCESSIBILITY_REVIEW_TODO.md` file.
+
+```bash
+/accessibility:fix
+```
+
+The extension will go through the checklist, apply fixes, and provide explanations for each change. Once the process is complete, it will update the `ACCESSIBILITY_REVIEW_TODO.md` file to mark the resolved issues.
+
+**Important:** This command must be run from the root directory of your web application's codebase. The Gemini CLI extension operates on the current working directory, and it is the user's responsibility to ensure the command is executed in the correct location for the agent to have the proper codebase context.
+
+## Powered by Open Source
+
+This extension is built upon the work of several powerful open-source libraries:
+
+-   **[@axe-core/playwright](https://github.com/dequelabs/axe-core-npm)** and **[axe-core](https://www.deque.com/axe/)**: The accessibility analysis is powered by the industry-standard `axe-core` engine for identifying accessibility violations.
+-   **[playwright](https://playwright.dev)**: Used for browser automation to run the accessibility audits on your web application.
+-   **[color-contrast-picker](https://github.com/abelmcelroy/color-contrast-picker)**: Helps in automatically finding compliant color contrasts to fix accessibility issues.
+-   **[@modelcontextprotocol/sdk](https://modelcontextprotocol.io)**: The underlying SDK for building Gemini CLI extensions.
+
+We are grateful to the maintainers and contributors of these projects for their invaluable work.
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Commit changes: `git commit -m 'Add amazing feature'`
+4. Push to branch: `git push origin feature/amazing-feature`
+5. Open a Pull Request
+
+See [CONTRIBUTING.md](docs/contributing.md) for more information about contributing to this project.
+
+## License
+
+This project is licensed under the Apache 2.0 License. See the [LICENSE](LICENSE) file for more details.
