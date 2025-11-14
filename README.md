@@ -23,6 +23,8 @@ Install the web-accessibility extension by running the following command from yo
 gemini extensions install https://github.com/gemini-cli-extensions/web-accessibility
 ```
 
+The extension comes with platform-specific browser binaries pre-installed, so it's ready to use immediately after installation.
+
 ## Usage Workflow
 
 This extension adds adds two new commands to Gemini CLI, `/accessibility:review` and `/accessibility:fix`. Here’s a typical workflow for using these commands to improve the accessibility of your web application:
@@ -68,6 +70,16 @@ After the review is complete, you can use the `fix` command to automatically cor
 The extension will go through the checklist, apply fixes, and provide explanations for each change. Once the process is complete, it will update the `ACCESSIBILITY_REVIEW_TODO.md` file to mark the resolved issues.
 
 **Important:** This command must be run from the root directory of your web application's codebase. The Gemini CLI extension operates on the current working directory, and it is the user's responsibility to ensure the command is executed in the correct location for the agent to have the proper codebase context.
+
+## Uninstallation
+
+To remove the extension:
+
+```bash
+gemini extensions uninstall web-accessibility
+```
+
+This removes the extension and all bundled browser binaries from `~/.gemini/extensions/web-accessibility` (macOS/Linux) or `%USERPROFILE%\.gemini\extensions\web-accessibility` (Windows).
 
 ## Powered by Open Source
 

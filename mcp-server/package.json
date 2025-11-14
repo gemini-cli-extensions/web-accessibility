@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "build": "tsc && chmod +x dist/*.js",
-    "prepare": "npx playwright install && npm run build",
+    "prepare": "npm run build",
+    "install-browsers": "npx playwright install",
     "start": "node dist/index.js",
     "test": "npm run build && node --test dist/lib/*.test.js"
   },
