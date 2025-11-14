@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc && chmod +x dist/*.js",
-    "prepare": "npx playwright install chrome && npm run build",
+    "prepare": "npx playwright install && npm run build",
     "start": "node dist/index.js",
     "test": "npm run build && node --test dist/lib/*.test.js"
   },
