@@ -1,189 +1,83 @@
 # Accessibility Guidelines
 
-Any UI code you write or modify should be fully accessible by default. This ensures that the UI application provides an equitable and functional experience for all users, including those with visual, auditory, motor, and cognitive disabilities. Accessibility is not an add-on, it is a core tenet of your development process. Every UI component you generate, every UI feature you implement, and every line of UI code you write must adhere to the **Web Content Accessibility Guidelines (WCAG) 2.2 Level AA** standards. This is a non-negotiable, top-priority requirement.
+Any UI code you generate or modify should be fully accessible by default. This ensures that the UI application provides an equitable and functional experience for all users, including those with visual, auditory, motor, and cognitive disabilities. Accessibility is not an add-on, it is a core tenet of your development process. Every UI component you generate, every UI feature you implement, and every line of UI code you write must adhere to the **Web Content Accessibility Guidelines (WCAG) 2.2 Level AA** standards. This is a non-negotiable, top-priority requirement.
 
-== General Accessibility Principles
-You must integrate these core principles into every aspect of your code generation. They represent a foundational checklist, but you are expected to apply your full expertise to identify and fix any accessibility issue that violates the broader WCAG 2.2 AA standard, even if it is not on this list.
+== General Accessibility Principles & Coding Practices
+You must integrate these core principles & adhere to these defined web accessible code writing practices while generating code. They represent a foundational checklist, but you are expected to apply your full knowledge and expertise to write fully web accessible code as per the broader WCAG 2.2 AA standard, even if it is not on this list.
 
-1.1. Use Semantic HTML First
-The foundation of an accessible web is using HTML elements for their intended purpose.
-- Landmarks: Use <header>, <footer>, <nav>, <main>, and <section> to give the page a logical structure that screen readers can navigate.
-- Headings: Structure content with a clear and sequential heading hierarchy (<h1> to <h6>). Never skip heading levels (e.g., jumping from an <h1> to an <h3>).
-- Interactive Elements: Always use <button> for actions (e.g., submitting a form, opening a modal). Always use <a href="..."> for navigation to another page or resource. Do not use <div> or <span> with onClick handlers for buttons or links.
+1. Global Structure & Semantics
+  - Semantic Landmarks: You must use native HTML5 semantic elements for page structure: <header>, <nav>, <main>, <aside>, and <footer>. Use aria-label to distinguish between multiple landmarks of the same type (e.g., two <nav> regions).
+  - Heading Hierarchy:
+    - Maintain a strictly logical heading structure (<h1>–<h6>).
+    - There must be exactly one <h1> per page/view.
+    - Never skip heading levels (e.g., do not jump from <h2> to <h4>).
+  - Language Attribute: Ensure the <html> tag has a correct lang attribute (e.g., lang="en"). If content switches language, use lang on the specific element.
 
-1.2. Provide Text Alternatives for All Non-Text Content
-If it's not text, it needs a text alternative.
-- Informative Images: All <img> tags that convey information must have a descriptive alt attribute.
-- Decorative Images: If an image is purely decorative, provide an empty alt="" attribute to hide it from screen readers.
-- Icon-Only Buttons: A button with only an icon must use an aria-label to describe its function.
+2. Focus Management & Keyboard Operability
+  - Logical Focus Order: The tab order must match the visual order and the DOM order. Do not manipulate tabindex values (e.g., tabindex="1") arbitrarily.
+  - Visible Focus: Ensure all interactive elements have a high-contrast visible focus indicator. Never remove default focus outlines (outline: none) without replacing them with a high-contrast alternative. Use the :focus-visible pseudo-class to style focus rings only for keyboard users.
+  - Skip Navigation: Always include a "Skip to main content" link as the very first focusable element in the DOM.
+  - Keyboard Equivalence: All actions executable via mouse must be executable via keyboard.
+    - Clickable Elements: You must either use a native <button> (which handles keyboard events for you) or, if you must use a custom element (non-button) for interaction, you must add role="button", tabindex="0" and manually add onKeyDown listeners for handling both Enter and Space keydown events.
 
-1.3. Use ARIA Sparingly and Correctly
-Semantic HTML is always preferred. Only use ARIA (Accessible Rich Internet Applications) attributes when native HTML is insufficient for complex, dynamic components.
-- Roles: Define the purpose of a component with a role (e.g., role="dialog").
-- State: Use aria-\* attributes to communicate the current state of a component (e.g., aria-expanded="true", aria-selected="false").
+3. Forms & Validation
+  - Labels are Mandatory: Every form input (input, textarea, select) must have a programmatically associated label via <label for="id">, aria-label, or aria-labelledby. Placeholder text is not a label.
+  - Grouping Controls: You must use <fieldset> and <legend> to group related radio buttons and checkboxes.
+  - Error Handling Best Practices:
+    - Identification: On validation failure, set aria-invalid="true" on the invalid input.
+    - Description: Place the error message text in a separate element and link it to the input using aria-describedby="error-id".
+    - Notification: Use a "Live Region" (e.g., role="alert" or aria-live="assertive") to announce errors dynamically to screen readers.
+    - Summary: For multi-field forms, provide an error summary at the top of the form that links to the invalid fields.
+    - Required Fields: Mark required fields with the required HTML attribute. For custom controls, use aria-required="true".
 
-1.4. Ensure 100% Keyboard Navigability
-All interactive elements must be reachable and operable using only the keyboard.
-- Focus Order: The tab order of elements must be logical and predictable, following the visual flow of the page.
-- Visible Focus: Every focusable element must have a highly visible focus indicator (e.g., using the CSS `outline` property) that has a strong contrast against the background.
-- Custom Widgets: If you create custom components like dropdowns or modals, ensure they trap focus appropriately and can be closed with the Escape key.
+4. Images & Media
+  - Alt Text Strategy:
+    - Informative: Provide descriptive text conveying the image's meaning.
+    - Decorative Images: If an image is purely decorative, provide an empty alt="" attribute to hide it from screen readers.
+    - Complex (Charts/Graphs): Provide a short summary in alt and link to a long description (or data table) via aria-describedby.
+    - Functional Images (Icons): If an image is inside a button/link and is the only content, the alt text must describe the function, not the visual (e.g., "Search", not "Magnifying glass").
+  - Media Controls:
+    - Video: Must include captions for dialogue and audio descriptions for visual-only context.
+    - Auto-play: Avoid auto-playing audio. If used, provide a mechanism to pause or stop it immediately.
 
-1.5. Build Accessible Forms
-Forms are a common point of failure. Get them right every time.
-- Labels: Every <input>, <textarea>, and <select> must have an associated <label>. Use the htmlFor attribute on the label, linking it to the id of the input. Placeholders are not a substitute for labels.
-- Error Handling: Identify errors clearly. Associate error messages with their respective input fields using aria-describedby. When an error occurs, programmatically move focus to the first invalid field.
+5. Visual Design & Responsive Reflow
+  - Relative Units: Use relative units (rem, em, %) for font sizes and container dimensions. Avoid fixed px heights for text containers.
+  - Reflow Requirement: Ensure the UI reflows without horizontal scrolling (except for maps/diagrams) at 400% zoom or on a 320px wide screen.
+  - Color Contrast:
+    - Text: Normal text must meet 4.5:1 contrast ratio; Large text (18pt+ or bold 14pt+) must meet 3:1.
+    - UI Components: Icons, inputs borders, and focus indicators must meet 3:1 contrast against the background.
+    - Color Independence: Never use color alone to convey state (e.g., "Red means error"). Always add a text label or icon.
 
-1.6. Guarantee Sufficient Color Contrast
-Text and important UI elements must be easily distinguishable from their background.
-- WCAG AA Ratio:
-  - Normal Text: Must have a contrast ratio of at least 4.5:1.
-  - Large Text (24px+ or 18.66px+ bold): Must have a contrast ratio of at least 3:1.
-- Practical Application: Be cautious with light gray text on white or light backgrounds, as this combination frequently fails contrast requirements. Always test color combinations with a contrast checker.
+6. Interactive Component Patterns (WAI-ARIA Specs)
+When building specific widgets, you must strictly follow these ARIA patterns:
+  
+  6.1. Modal Dialogs:
+    - Role: role="dialog", aria-modal="true".
+    - Focus: Move focus to the dialog on open. Focus must not escape the modal while open. Return focus to the triggering element on close.
+    - Close: Ensure Escape key closes the dialog.
+  
+  6.2. Tabs:
+    - Container: role="tablist".
+    - Buttons: role="tab", aria-selected="true/false", aria-controls="panel-id".
+    - Panels: role="tabpanel", aria-labelledby="tab-id".
+    - Interaction: Use Left/Right arrow keys to navigate the tab list.
 
-1.7. Do Not Rely on Color Alone
-Color cannot be the only method used to convey information or indicate an action.
-- Links: A link within a paragraph should have a non-color indicator, like an underline, in addition to a different color.
-- Status Messages: When indicating success or an error, supplement color (e.g., a green or red border) with an icon and explicit text.
+  6.3. Accordions:
+    - Trigger: Button with aria-expanded="true/false" and aria-controls="panel-id".
+    - Content: role="region" with aria-labelledby pointing back to the trigger.
 
-1.8. Enable Text Resizing and Content Reflow
-Users must be able to zoom the page up to 200% without the layout breaking or requiring horizontal scrolling to read text.
-- Use Relative Units: Use relative units like `rem` for `font-size` to respect user-defined font settings. Use relative units for spacing (margin, padding) where possible.
-- Avoid Fixed Heights: Do not set fixed heights on elements containing text (e.g., h-12). Instead, use min-h-12 to allow the container to expand vertically if the text size increases.
+  6.4. Menus / Dropdowns:
+    - Container: role="menu" or menubar.
+    - Items: role="menuitem".
+    - Submenus: Use aria-haspopup="true" and aria-expanded on parent items.
+    - Interaction: Use Up/Down/Left/Right arrow keys for navigation within the menu.
 
-== Code Examples (Inaccessible vs. Accessible)
-Use the "Accessible" patterns in all generated code.
+  6.5. Carousels:
+    - Container: role="region", aria-roledescription="carousel".
+    - Slides: role="group", aria-roledescription="slide".
+    - Controls: Must include a visible Pause/Stop button for auto-rotation.
 
-Example 1 (The Interactive Button):
-Inaccessible code snippet (Non-semantic <div>):
-
-```javascript
-// This is not a button. It is not focusable or operable via keyboard.
-<div className="px-4 py-2 bg-blue-500 text-white" onClick={submitForm}>
-  Submit
-</div>
-```
-
-Accessible code snippet (Semantic <button>):
-
-```javascript
-// This is a proper button. It is focusable, keyboard-operable, and semantic.
-<button
-  className="px-4 py-2 bg-blue-500 text-white rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-  onClick={submitForm}
->
-  Submit
-</button>
-```
-
-Example 2 (The Icon-Only Button):
-Inaccessible code snippet (No Text Alternative):
-
-```javascript
-// A screen reader cannot determine the function of this button.
-<button className="p-2">
-  <svg>...</svg> {/* Close Icon */}
-</button>
-```
-
-Accessible code snippet (With aria-label):
-
-```javascript
-// The aria-label provides a descriptive name for screen reader users.
-<button
-  aria-label="Close"
-  className="p-2 focus:outline-none focus:ring-2 focus:ring-gray-400"
->
-  <svg>...</svg> {/* Close Icon */}
-</button>
-```
-
-Example 3 (The Form Input Field)
-Inaccessible code snippet (No Label):
-
-```javascript
-// There is no programmatic label associated with this input.
-<input type="email" placeholder="Email address" className="border p-2" />
-```
-
-Accessible code snippet (with <label>):
-
-```javascript
-// The <label> is correctly associated with the input via htmlFor and id.
-<div>
-  <label htmlFor="user-email" className="text-sm font-medium">
-    Email address
-  </label>
-  <input id="user-email" type="email" className="mt-1 border p-2 w-full" />
-</div>
-```
-
-Example 4 (Color Contrast and Status):
-Inaccessible code snippet (Low Contrast, Color-Only Cue):
-
-```javascript
-// This alert has low-contrast text and uses color as the only indicator of its meaning.
-<div className="p-4 bg-yellow-100 text-yellow-500 rounded">
-  Warning: Your trial is about to expire.
-</div>
-```
-
-Accessible code snippet(High Contrast, Icon + Text):
-
-```javascript
-// High-contrast text and a prepended icon make the message clear to everyone.
-<div className="flex items-center p-4 bg-yellow-100 text-yellow-800 rounded">
-  <svg className="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20">
-    {/* Warning Icon SVG */}
-  </svg>
-  <p>
-    <strong>Warning:</strong> Your trial is about to expire.
-  </p>
-</div>
-```
-
-Example 5 (A Clickable Card):
-Inaccessible code snippet (Generic div with onClick):
-
-```javascript
-// This card is not keyboard focusable or announced correctly by screen readers.
-<div
-  onClick={() => router.push("/details/1")}
-  className="p-4 border rounded shadow hover:bg-gray-50"
->
-  <h3 className="text-lg font-bold">Project Alpha</h3>
-  <p className="text-sm text-gray-600">Click to view details.</p>
-</div>
-```
-
-Accessible code snippet (Semantic Link with a clear action-oriented description):
-
-```javascript
-// The entire card is wrapped in a link, making it a single, clear focus stop.
-// The improved sr-only text creates a more natural announcement for screen reader users.
-<a
-  href="/details/1"
-  className="block p-4 border rounded shadow hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
->
-  <h3 className="text-lg font-bold">Project Alpha</h3>
-  <p className="text-sm text-gray-600">Status: In Progress</p>
-  <span className="sr-only">. View details for Project Alpha.</span>
-</a>
-```
-
-Example 6 (An Informative Image):
-Inaccessible code snippet (Missing alt attribute):
-
-```javascript
-// Missing alt attribute leaves screen reader users with no information.
-<img src="/analytics-chart.png" />
-```
-
-Accessible code snippet (Descriptive alt attribute):
-
-```javascript
-// The alt text clearly describes the content and purpose of the image.
-<img
-  src="/analytics-chart.png"
-  alt="A bar chart showing a 25% increase in user engagement for the month of May."
-/>
-```
+7. Single Page Application (SPA) Specifics
+  - Route Changes: When the view changes (routing), you must programmatically move focus to the new main heading (h1) or a dedicated wrapper to alert the user they have moved.
+  - Title Updates: Update the document.title on every route change.
+  - Live Updates: Use aria-live="polite" for non-urgent updates (search results, cart updates, loading spinners, toast notifications) and aria-live="assertive" (or role="alert") for critical errors.
