@@ -1,6 +1,6 @@
 {
   "name": "web-accessibility",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "contextFileName": "ACCESSIBILITY.md",
   "mcpServers": {
     "web-accessibility-mcpserver": {
