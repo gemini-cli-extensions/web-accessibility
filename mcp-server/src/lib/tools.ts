@@ -72,12 +72,12 @@ export function registerA11yTools(server: McpServer, analyzer: AxeAnalyzer) {
   server.registerTool(
     'a11y_audit_web_url',
     {
-      description: 'Audits a live URL for accessibility violations.',
+      description: 'Audits a localhost URL for accessibility violations. Only localhost URLs (localhost, 127.0.0.1, ::1) are supported.',
       inputSchema: z.object({
         url: z
           .string()
           .url()
-          .describe('The localhost:port or public URL to analyze.'),
+          .describe('The localhost URL to analyze (e.g., http://localhost:8001). Only localhost hostnames are supported.'),
         tags: z
           .array(z.string())
           .optional()
@@ -90,6 +90,24 @@ export function registerA11yTools(server: McpServer, analyzer: AxeAnalyzer) {
     },
     async ({ url, tags, rules }: { url: string; tags?: string[], rules?: string[] }) => {
       try {
+        const urlObj = new URL(url);
+        const isLocalhost =
+          urlObj.hostname === 'localhost' ||
+          urlObj.hostname === '127.0.0.1' ||
+          urlObj.hostname === '::1' ||
+          urlObj.hostname === '[::1]';
+
+        if (!isLocalhost) {
+          return {
+            content: [
+              {
+                type: 'text' as const,
+                text: `Error: Only localhost URLs are supported. Please provide a URL with hostname 'localhost', '127.0.0.1', or '::1'. Provided hostname: ${urlObj.hostname}`,
+              },
+            ],
+          };
+        }
+
         const result = await analyzer.analyze(
           async (page) => {
             await page.goto(url);
