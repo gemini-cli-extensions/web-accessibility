@@ -94,8 +94,7 @@ export function registerA11yTools(server: McpServer, analyzer: AxeAnalyzer) {
         const isLocalhost =
           urlObj.hostname === 'localhost' ||
           urlObj.hostname === '127.0.0.1' ||
-          urlObj.hostname === '::1' ||
-          urlObj.hostname === '[::1]';
+          urlObj.hostname === '::1';
 
         if (!isLocalhost) {
           return {
