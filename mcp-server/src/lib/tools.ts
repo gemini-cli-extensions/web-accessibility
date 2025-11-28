@@ -8,7 +8,7 @@ import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { z } from 'zod';
 import { AxeAnalyzer } from './axe-analyzer.js';
 import { AxeResults } from 'axe-core';
-import { makeHexesContrast } from 'color-contrast-picker';
+import { makeHexesContrast } from '../../../third_party/color-contrast-picker/lib/index.js'
 import { parseExpectedContrastRatio } from './color-utils.js';
 
 /**
