@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "outDir": "lib",
+    "noImplicitAny": true,
+    "module": "CommonJS",
+    "target": "es5",
+    "declaration": true,
+    "skipLibCheck": true,
+    "strict": true,
+  },
+  "include": [
+    "src"
+  ]
+}

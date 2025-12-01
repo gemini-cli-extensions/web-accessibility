@@ -49,7 +49,14 @@ jobs:
           cache: "npm"
           cache-dependency-path: mcp-server/package-lock.json
 
-      # 3. Install MCP server dependencies and build
+      # 3. Install and build third_party/color-contrast-picker
+      - name: Install and build third_party/color-contrast-picker
+        working-directory: third_party/color-contrast-picker
+        run: |
+          npm ci
+          npm run build
+
+      # 4. Install MCP server dependencies and build
       - name: Install MCP server dependencies and build
         working-directory: mcp-server
         run: npm ci
