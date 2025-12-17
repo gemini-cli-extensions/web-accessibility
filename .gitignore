@@ -1,0 +1,6 @@
+**/dist/**
+**/lib/**
+**/node_modules/**
+.prettierignore
+agent-evals/output/**
+**/.local-browsers/**

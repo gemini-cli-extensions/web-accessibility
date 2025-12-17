@@ -1,0 +1,15 @@
+name: "color-contrast-picker"
+description: "Color picking tool for WCAG 2.1 compliant colors. Finds colors meeting the luminance ratio for any WCAG 2.1 standard, while preserving tone."
+third_party {
+  identifier {
+    type: "npm"
+    value: "color-contrast-picker"
+  }
+  url {
+    type: HOMEPAGE
+    value: "https://github.com/abelmcelroy/color-contrast-picker"
+  }
+  version: "1.0.8"
+  license_type: MIT
+  last_upgrade_date { year: 2025 month: 11 day: 28 }
+}
