@@ -1,0 +1,103 @@
+name: Package and Upload Release Assets
+
+on:
+  release:
+    types: [created]
+
+  # This allows you to run the workflow manually from the Actions tab
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: "The tag of the release to upload assets to"
+        required: true
+        type: string
+
+permissions:
+  # This permission is required for the action to create a GitHub Release
+  contents: write
+
+jobs:
+  build-and-package:
+    strategy:
+      matrix:
+        include:
+          # macOS build - using ARM64 runner (covers both architectures via Rosetta)
+          - os: macos-latest
+            platform: darwin
+            filename: darwin.web-accessibility.tar.gz
+          # Linux build
+          - os: ubuntu-latest
+            platform: linux
+            filename: linux.x64.web-accessibility.tar.gz
+          # Windows build
+          - os: windows-latest
+            platform: win32
+            filename: win32.web-accessibility.zip
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      # 1. Checks out your repository's code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Sets up the Node.js environment
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: mcp-server/package-lock.json
+
+      # 3. Install and build third_party/color-contrast-picker
+      - name: Install and build third_party/color-contrast-picker
+        working-directory: third_party/color-contrast-picker
+        run: |
+          npm ci
+          npm run build
+
+      # 4. Install MCP server dependencies and build
+      - name: Install MCP server dependencies and build
+        working-directory: mcp-server
+        run: npm ci
+
+      # 4. Install Playwright browsers into local directory
+      # Using PLAYWRIGHT_BROWSERS_PATH to install browsers in the mcp-server directory
+      - name: Install Playwright browsers locally
+        working-directory: mcp-server
+        shell: bash
+        run: |
+          export PLAYWRIGHT_BROWSERS_PATH=.local-browsers
+          npm run install-browsers
+        env:
+          PLAYWRIGHT_BROWSERS_PATH: .local-browsers
+
+      # 5. Create platform-specific archive
+      # Archive name follows Gemini CLI convention: {platform}.{name}.{extension} or {platform}.{arch}.{name}.{extension}
+      # Examples: darwin.web-accessibility.tar.gz, linux.x64.web-accessibility.tar.gz, win32.web-accessibility.zip
+      - name: Create tar.gz archive (macOS/Linux)
+        if: runner.os != 'Windows'
+        run: |
+          tar -czf ../${{ matrix.filename }} \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='.gitignore' \
+            .
+          mv ../${{ matrix.filename }} .
+
+      - name: Create zip archive (Windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $exclude = @('.git', '.github', '.gitignore')
+          Get-ChildItem -Path . -Exclude $exclude | Compress-Archive -DestinationPath ${{ matrix.filename }} -Force
+
+      # 6. Upload the platform-specific archive as a release asset
+      - name: Upload archive to GitHub Release
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release upload \
+            ${{ github.event.release.tag_name || inputs.tag_name }} \
+            ${{ matrix.filename }}

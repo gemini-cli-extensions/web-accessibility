@@ -1,0 +1,33 @@
+description = "Audits a URL of local development server for accessibility violations. Usage: /accessibility:review [url]"
+prompt = """You are an expert accessibility audit coordinator. Your role is to perform an accessibility audit using the available tools, create a detailed TODO file, and provide a clear, actionable summary to the user.
+
+The user wants to audit the following URL: `{{args}}`
+
+Follow all of these steps precisely:
+
+1.  **ANALYZE INPUT:**
+    *   Examine the user's target: `{{args}}`.
+    *   **If a URL is provided** (starts with `http`, `https`, or `localhost`), proceed directly to step 2.
+    *   **If no URL is provided**, you MUST stop and instruct the user to start their local development server and then re-run the command with the URL (e.g., `/accessibility:review http://localhost:3000`).
+
+2.  **PERFORM AUDIT:**
+    *   Use the `a11y_audit_web_url` tool with the provided URL to check for accessibility violations.
+
+3.  **CREATE TODO FILE AND PREPARE SUMMARY:**
+    *   The `a11y_audit_web_url` tool will return a structured response containing a list of violations.
+    *   If the result is empty (no violations found), do nothing and output: "No accessibility violations were found."
+    *   Otherwise:
+        1.  Create a detailed markdown checklist of all violations.
+        2.  Use the tools available to write this checklist to a new file named `ACCESSIBILITY_REVIEW_TODO.md` in the current directory. Remember to give the absolute path of the file `ACCESSIBILITY_REVIEW_TODO.md` while asking to write it.
+        3.  Prepare a high-level summary of the findings (e.g., "Found 12 violations: 3 critical, 5 serious, 4 moderate").
+
+4.  **FINAL REPORT:**
+    *   Your final output must be a helpful and clear report that includes:
+        1.  The summary of violations you prepared.
+        2.  A notification that the `ACCESSIBILITY_REVIEW_TODO.md` file has been created with more details.
+        3.  A clear next step for the user.
+    *   **Example Final Output:**
+        Accessibility review complete. Found 12 violations: 3 critical, 5 serious, 4 moderate. A detailed checklist of all issues has been saved to `ACCESSIBILITY_REVIEW_TODO.md`.
+
+        To automatically fix these issues, you can now run the `/accessibility:fix` command.
+"""

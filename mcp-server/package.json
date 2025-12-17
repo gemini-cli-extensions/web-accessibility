@@ -1,0 +1,22 @@
+{
+  "name": "web-accessibility-mcp-server",
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "build": "tsc && chmod +x dist/*.js",
+    "prepare": "npm run build",
+    "install-browsers": "npx playwright install",
+    "start": "node dist/index.js",
+    "test": "npm run build && node --test dist/lib/*.test.js"
+  },
+  "dependencies": {
+    "@axe-core/playwright": "^4.11.0",
+    "@modelcontextprotocol/sdk": "^1.19.1",
+    "axe-core": "^4.10.2",
+    "playwright": "^1.56.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.7.0",
+    "typescript": "^5.7.0"
+  }
+}

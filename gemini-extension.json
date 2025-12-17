@@ -1,0 +1,11 @@
+{
+  "name": "web-accessibility",
+  "version": "0.0.1",
+  "contextFileName": "ACCESSIBILITY.md",
+  "mcpServers": {
+    "web-accessibility-mcpserver": {
+      "command": "node",
+      "args": ["${extensionPath}/mcp-server/dist/index.js"]
+    }
+  }
+}
