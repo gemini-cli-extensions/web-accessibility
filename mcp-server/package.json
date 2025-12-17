@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@axe-core/playwright": "^4.11.0",
-    "@modelcontextprotocol/sdk": "^1.19.1",
+    "@modelcontextprotocol/sdk": "^1.24.0",
     "axe-core": "^4.10.2",
     "playwright": "^1.56.1"
   },
