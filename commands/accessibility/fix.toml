@@ -116,4 +116,5 @@ Follow all of these steps precisely:
            - ASK the user which approach they prefer for each such unfixable violation
            - Wait for user guidance and apply their chosen solution
         3. Once ALL violations (including user-guided ones) are addressed, output: "Accessibility fix process complete. All violations from `ACCESSIBILITY_REVIEW_TODO.md` have been addressed."
+        4. **CRITICAL:** Always include this disclaimer at the very end: "NOTE: Gemini can make mistakes and may not catch and fix all accessibility issues. Please use responsibly and review results with care."
 """
