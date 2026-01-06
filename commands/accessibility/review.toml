@@ -26,8 +26,12 @@ Follow all of these steps precisely:
         1.  The summary of violations you prepared.
         2.  A notification that the `ACCESSIBILITY_REVIEW_TODO.md` file has been created with more details.
         3.  A clear next step for the user.
+        4.  **CRITICAL:** Always include this disclaimer at the very end: "NOTE: Gemini can make mistakes and may not catch all accessibility issues. Please use responsibly and review results with care."
+
     *   **Example Final Output:**
         Accessibility review complete. Found 12 violations: 3 critical, 5 serious, 4 moderate. A detailed checklist of all issues has been saved to `ACCESSIBILITY_REVIEW_TODO.md`.
 
         To automatically fix these issues, you can now run the `/accessibility:fix` command.
+
+        NOTE: Gemini can make mistakes and may not catch all accessibility issues. Please use responsibly and review results with care.
 """
