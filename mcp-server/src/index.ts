@@ -6,8 +6,8 @@
 
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
-import { AxeAnalyzer } from './lib/axe-analyzer.js';
-import { registerA11yTools } from './lib/tools.js';
+import { AxeAnalyzer } from './tools/axe-analyzer.js';
+import { registerA11yTools } from './tools/tools.js';
 
 /**
  * Main function to initialize and run the accessibility MCP server.
